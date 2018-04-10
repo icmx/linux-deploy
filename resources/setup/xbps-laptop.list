@@ -1,0 +1,9 @@
+# XBPS Packages List: Laptop Specific Packages
+#
+# These packages should be installed on laptop PC only (specified by
+# O_PLATFORM="laptop").
+#
+# See main "xbps.list" file for details.
+
+  acpid  # +noui The only way to handle laptop lid events (e.g. to lock the screen) for me
+  light  # +cli  Screen brightness controlling tool

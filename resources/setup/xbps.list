@@ -1,0 +1,259 @@
+# XBPS Packages List
+#
+# This file stores a list of Void Linux XBPS packages to be installed in
+# system.
+#
+#                                    *  *  *
+#
+# You can process this file by following ways:
+#
+#   - Extract package names (one line, space separated):
+#
+#       cut -f 1 -d "#" xbps.list | tr -s "\n" " "
+#
+#   - Packages count:
+#
+#       [cut command above] | wc -w
+#
+#                                    *  *  *
+#
+# Most of package comments includes following plus-tags:
+#
+#   +noui  Package content has no any interface, it's probably some
+#          resources like configuration or icons, or similar.
+#
+#          Alternatively, it may be a huge meta-package of software that
+#          provides multiple user interfaces.
+#
+#   +cli   Package content has command-line, a single-shot interface for
+#          terminals or their emulators (like "rxvt-unicode").
+#
+#   +tui   Package content has textual user interface which still runs
+#          in terminal, but works interactively (mostly via arrow keys
+#          i.e.)
+#
+#   +gui   Package content has full graphical user interface and thus
+#          requires a graphical server.
+#
+#   +3rdp  Package is probably commented because it does not exist in
+#          official repository. It should be installed manually from
+#          third party sources.
+#
+#   +inap  Package is probably commented because of official repository
+#          that provides inappropriate package (e.g. obsolete or too
+#          bloated) content. It should be installed manually form third
+#          party sources.
+#
+########################################################################
+
+
+# Graphics Core: - X.Org Display Server
+#
+#   Display server runs graphical applications (e.g. Firefox) and
+#   handles its windows via external components (see section below).
+
+  xorg                    # +noui Display by itself
+  xf86-input-libinput     # +noui Additional drivers to be sure
+  xf86-video-fbdev        # +noui
+  xf86-video-intel        # +noui
+
+# Graphics Core: X.Org User Environment
+#
+#   Applications vital for user graphical interaction
+
+  bspwm                   # +noui Window manager, handles application windows separately
+  compton                 # +noui Composite manager, draws window shadows and opacity effects
+  dunst                   # +gui Notofications provider
+  physlock                # +cli Screen locker, locks not only the X session, but TTY's too
+  polybar                 # +gui Statusbar to display date, battery, volume etc.
+  rofi                    # +gui Applications launcher and windows switcher
+  rxvt-unicode            # +gui Terminal emulator
+  maim                    # +cli Screenshooting tool
+  sxhkd                   # +noui Hotkey daemon, handles keyboard shortcuts
+  xautolock               # +cli X session autolocker (activates screen locker like "physlock" by timer)
+  zenity                  # +cli Tool to create GUI dialogs from scripts
+
+# Sound Core
+
+  alsa-lib                # +noui ALSA
+  alsa-utils              # +cli
+  alsa-plugins-pulseaudio # +noui
+  pulseaudio              # +cli Pulseaudio server that stands on top of ALSA
+
+# User Access Policies Support Control
+#
+#   These packages basically need to provide side applications some
+#   extra privileges
+
+  ConsoleKit2             # +noui
+  polkit                  # +noui
+
+# Storages Mounting Support and Control
+#
+#   Mostly for devices like phones or tablets with only MTP support.
+
+  gvfs                    # +noui
+  gvfs-mtp                # +noui
+  eudev                   # +noui
+  udisks2                 # +noui
+
+# Miscelaneous System Core Components
+
+  dbus                    # +noui
+  dnsmasq                 # +noui DNS tools
+  gnome-keyring           # +noui For "NetworkManager"
+  hostapd                 # +noui Provides means to create wireless access point
+  ntp                     # +noui
+  socklog-void            # +noui Logger, I personally use it just to hide NetworkManager annoying TTY messages
+
+# External File Systems Support
+
+  fuse-exfat              # +noui Full support for Microsoft® exFAT
+  fuse-sshfs              # +noui
+  ntfs-3g                 # +noui Full support for Microsoft® NTFS
+
+# System Resources Controllers
+
+  cpupower                # +cli CPU parameters controlling tool
+  create_ap               # +cli Wi-Fi access point starter script
+  hdparm                  # +cli Hard drives controlling tool
+  inetutils-ifconfig      # +cli
+
+# System Resources Monitors
+
+  htop                    # +tui Process monitor, advanced "top" alternative
+  jnettop                 # +tui "top"-like tool for connections (mostly for ethernet)
+  lm_sensors              # +cli Hardware temperature info
+  powertop                # +tui "top"-like tool for power consumption and such
+  ncdu                    # +tui Files disk usage
+  lsof                    # +cli List open files
+  tree                    # +cli Directories and files hierarchy printer
+
+# Multimedia Viewers
+
+  exiftool                # +cli Media files metadata reader/writer (mostly to read graphics)
+  feh                     # +gui Simple image viewer
+  mpv                     # +gui Multiformat media (mostly video) player
+  zathura                 # +tui
+ #spek                    # +gui +3rdp Acoustic spectrum analyser and viewer
+
+# Multimedia Editors
+
+  gimp                    # +gui Advanced image editor
+  ImageMagick             # +cli
+  inkscape                # +gui Advanced vector graphics editor
+
+# Miscellaneous Non-Graphical Utilities
+
+  cronie                  # +cli Cron-like scheduler
+  bc                      # +cli Calculator
+  curl                    # +cli HTTP downloader/uploader, pair to "wget"
+  ffmpeg                  # +cli Audio and video handler (mostly for converting)
+  git                     # +cli Revision control system
+  newsboat                # +tui Actively developing newsbeuter RSS reader fork
+  p7zip                   # +cli 7ZIP archiving tool
+  pandoc                  # +cli Document files converting tool
+  pwgen                   # +cli Passwords generator
+  ranger                  # +tui File manager
+  rhash                   # +cli Hashing tool (SHA 3 256 & 512 included)
+  rtorrent                # +tui BitTorrent client
+  tiv                     # +cli Text image viewer, used for "ranger" ASCII previews. Imlib2/libcaca/img2txt binaries on void works only with BMPs
+  tmux                    # +tui Terminal multiplexer (multi-screen provider)
+  wget                    # +cli HTTP downloader/uploader, pair to "curl"
+  xdg-user-dirs           # +cli
+  xdg-user-dirs-gtk       # +cli
+  xdg-utils               # +cli
+  xorriso                 # +cli ISO filesystem manipulator (makes ISO file from directory e.g.)
+  xtools                  # +cli
+  youtube-dl              # +cli Video downloader for YouTube and some other sites
+  xz                      # +cli
+
+# Miscellaneous Graphical Utilities
+
+  file-roller             # +gui Archive manager. Requires "p7zip" to encrypt and decrypt the 7ZIP archives
+  nemo                    # +gui Filemanager
+  network-manager-applet  # +gui Network manager, provides "nm-applet" tray control, CLI "nmcli" and TUI "nmtui"
+  pavucontrol             # +gui Interface for PulseAudio
+  transmission-cli        # +cli
+ #firefox                 # +gui +inap Provides only one version (stable) with no beta or nightly updates.
+ #libreoffice             # +gui +inap Too big package so it's better to use flatpak for now
+ #sublime-text            # +gui +3rdp Advanced text editor
+
+# Additional Components: Fonts
+
+  dejavu-fonts-ttf        # Regular font
+  font-iosevka            # Monospace font (for terminal emulators and text editors)
+  font-unifont-bdf        # Universal font for compatibility
+  noto-fonts-cjk          # Chinese, Japanese and Korean glyphs
+  noto-fonts-emoji        # Emoji
+  noto-fonts-ttf          # Basic Noto fonts
+  ttf-material-icons      # Icon font (for polybar e.g.)
+
+# Additional Components: Theme Resources
+
+  adwaita-icon-theme      #
+  gnome-icon-theme        #
+
+# Additional Components: Libraries and Software External Modules
+
+  bash-completion         # +noui
+  gst-libav               # +noui mp4 support
+  libnotify               # +noui Notifications support
+  linux-firmware          # +noui
+  linux-firmware-network  # +noui
+  p7zip-unrar             # +noui 7ZIP ("p7zip") module for RAR decompression
+  zathura-cb              # +noui
+  zathura-djvu            # +noui
+  zathura-pdf-mupdf       # +noui
+  zathura-ps              # +noui
+  fontconfig-32bit        # +noui
+  libavcodec-32bit        # +noui
+  libavformat-32bit       # +noui
+  libavresample-32bit     # +noui
+  libavutil-32bit         # +noui
+  libGL-32bit             # +noui
+  libpulseaudio-32bit     # +noui
+  libtxc_dxtn-32bit       # +noui
+  libv8-32bit             # +noui
+  mesa-intel-dri-32bit    # +noui
+
+# Virtualization and Compatibility: Flatpak
+#
+#   Flatpak allows to run standalone applications in isolated
+#   environments. It can be useful e.g. in case if you don't want to
+#   install bunches of dependency packages just for one big application
+#   (like in LibreOffice)
+
+  flatpak                 # +cli
+
+# Virtualization and Compatibility: Wine Windows-like Runtime
+#
+#   Wine provides compatible environment to run applications developed
+#   for Microsoft® Windows® operating system. Most of simple 2D software
+#   (e.g. graphical or text editors) works in Wine by itself, but for
+#   advanced applications like 3D video games you'll probably need to
+#   install additional components listed in section "Additional
+#   Components: Libraries and Software External Modules (see for -32bit
+#   entries).
+#
+#   Please note that there is only 32 bit version of Wine for Void
+#   currently, so you can't run 64 bit Windows® software for now.
+
+  wine-32bit              # +noui
+  wine-gecko              # +noui
+  wine-mono               # +noui
+  winetricks              # +noui Script to configure Wine and install some components like Microsoft® DirectX®
+
+# Virtualization and Compatibility: QEMU Emulator
+#
+#   Unlike Wine, QEMU is true emulator which able to run almost any
+#   operating system including Unix-like, Microsoft® Windows®, Apple®
+#   macOS® and some others.
+#
+#   QEMU does not provide any graphical interface by itself since it's a
+#   command line application. Hovewer, you can use "virt-manager"
+#   package to manage QEMU virtual machines via GUI.
+
+  virt-manager            # +gui
+  qemu                    # +cli
+  qemu-ga                 # +noui

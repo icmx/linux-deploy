@@ -1,0 +1,8 @@
+# XBPS Packages List: Desktop Specific Packages
+#
+# These packages should be installed on desktop PC only (specified by
+# O_PLATFORM="desktop").
+#
+# See main "xbps.list" file for details.
+
+# There are no deskop packages currently.
