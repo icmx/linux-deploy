@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# dicap - Detect Interfaces and Create Access Point (shortcut)
+#
+# Parameters
+#
+#   - ${1}: access point passphrase
+#   - ${2}: create_ap options list, must be quoted.
+
+SSID="$(hostname).wlan"
+NAME_WL=$(ip link | grep --perl-regexp --only-matching "wlp.{3}" | tail --lines 1)
+NAME_EN=$(ip link | grep --perl-regexp --only-matching "enp.{3}" | tail --lines 1)
+
+create_ap ${2} "${NAME_WL}" "${NAME_EN}" "${SSID}" "${1}"

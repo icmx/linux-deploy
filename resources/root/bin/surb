@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# surb: Substitute User as Root under Bash (useful shortcut)
+
+/bin/su --login "root" --shell "/bin/bash" "$@"

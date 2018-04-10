@@ -1,0 +1,9 @@
+#/bin/sh
+xbps-install --sync --update --verbose ${@}
+
+if [ ( -f "/bin/hdq" ) -a ( -x "/bin/hdq" ) ]
+then
+  hdq
+fi
+
+makewhatis "/usr/share/man"

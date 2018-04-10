@@ -1,0 +1,3 @@
+# Perform the same action as in machine shutdown case
+
+sh /etc/rc.shutdown

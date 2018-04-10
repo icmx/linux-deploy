@@ -1,0 +1,22 @@
+#!/bin/sh
+
+DEVICE="sdb"
+ISHDD=$(cat "/sys/block/${DEVICE}/queue/rotational")
+POINTS=$(mount | grep "${DEVICE}" | cut --fields 1 --delimiter " ")
+
+if [ ${ISHDD} -gt 0 ]
+then
+
+  if [ ${POINTS} ]
+  then
+
+    for i in ${POINTS}
+    do
+      umount "${i}"
+    done
+
+    sleep "5s"
+  fi
+
+  hdparm -Y "/dev/${DEVICE}"
+fi

@@ -1,0 +1,23 @@
+# /etc/profile
+# System wide environment and startup programs
+# Works for Bash and many other shells
+
+# Set default path (/usr/sbin:/sbin:/bin included for non-Void chroots)
+PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin"
+export PATH
+
+# Set default umask
+umask 022
+
+# Load profiles from /etc/profile.d
+if [ -d /etc/profile.d ]
+then
+  for i in /etc/profile.d/*.sh
+  do
+    if [ -r $i ]
+    then
+      . $i
+    fi
+  done
+  unset i
+fi

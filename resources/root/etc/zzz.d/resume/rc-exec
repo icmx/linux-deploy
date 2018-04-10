@@ -1,0 +1,3 @@
+# Perform the same action as in machine start case
+
+sh /etc/rc.local

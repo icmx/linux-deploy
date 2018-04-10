@@ -1,0 +1,64 @@
+
+Void \e[1m\s\e[0m \e[1m\r\e[0m auf \e[1m\l\e[0m@\e[1m\n\e[0m (\e[1m\b Bd\e[0m): herzlich willkommen!
+
+Ich sehe \e[1m\u\e[0mbenutzer hier.
+
+Lassen Sie mich dann Ihre Terminaleinstellungen überprüfen... Ok!
+Codepage Kompatibilitätsprüfung ...
+
+00  \e[1;34mNUL\e[0m    17  \e[1;34mETB\e[0m    2E  \e[1;34m.\e[0m      5B  \e[1;34m[\e[0m      72  \e[1;34mr  \e[0m     xx          C6  \e[1;34m╩\e[0m
+01  \e[1;34mSOH\e[0m    18  \e[1;34mCAN\e[0m    2F  \e[1;34m/\e[0m      5C  \e[1;34m\\\e[0m      73  \e[1;34ms  \e[0m     B0  \e[1;34m░\e[0m       C7  \e[1;34m╦\e[0m
+02  \e[1;34mSTX\e[0m    19  \e[1;34mEM \e[0m    30  \e[1;34m0\e[0m      5D  \e[1;34m]\e[0m      74  \e[1;34mt  \e[0m     B1  \e[1;34m▒\e[0m       C8  \e[1;34m╠\e[0m
+03  \e[1;34mETX\e[0m    1A  \e[1;34mSUB\e[0m    31  \e[1;34m1\e[0m      5E  \e[1;34m^\e[0m      75  \e[1;34mu  \e[0m     B2  \e[1;34m▓\e[0m       C9  \e[1;34m═\e[0m
+04  \e[1;34mEOT\e[0m    1B  \e[1;34mESC\e[0m    32  \e[1;34m2\e[0m      5F  \e[1;34m_\e[0m      76  \e[1;34mv  \e[0m     B3  \e[1;34m│\e[0m       CA  \e[1;34m╬\e[0m
+05  \e[1;34mENQ\e[0m    1C  \e[1;34mFS \e[0m    33  \e[1;34m3\e[0m      60  \e[1;34m`\e[0m      77  \e[1;34mw  \e[0m     B4  \e[1;34m┤\e[0m       CB  \e[1;34m╧\e[0m
+06  \e[1;34mACK\e[0m    1E  \e[1;34mGS \e[0m    34  \e[1;34m4\e[0m      61  \e[1;34ma\e[0m      78  \e[1;34mx  \e[0m     B5  \e[1;34m╡\e[0m       CC  \e[1;34m╨\e[0m
+07  \e[1;34mBEL\e[0m    1E  \e[1;34mRS \e[0m    35  \e[1;34m5\e[0m      62  \e[1;34mb\e[0m      79  \e[1;34my  \e[0m     B6  \e[1;34m╢\e[0m       CD  \e[1;34m╤\e[0m
+08  \e[1;34mBS \e[0m    1F  \e[1;34mUS \e[0m    36  \e[1;34m6\e[0m      63  \e[1;34mc\e[0m      7A  \e[1;34mz  \e[0m     B7  \e[1;34m║\e[0m       CE  \e[1;34m╥\e[0m
+09  \e[1;34mTAB\e[0m    20  \e[1;34m   \e[0m    37  \e[1;34m7\e[0m      64  \e[1;34md\e[0m      7B  \e[1;34m{  \e[0m     B8  \e[1;34m╗\e[0m       CF  \e[1;34m╙\e[0m
+0A  \e[1;34mLF \e[0m    21  \e[1;34m!  \e[0m    38  \e[1;34m8\e[0m      65  \e[1;34me\e[0m      7C  \e[1;34m|  \e[0m     B9  \e[1;34m╝\e[0m       D0  \e[1;34m╘\e[0m
+0B  \e[1;34mVT \e[0m    21  \e[1;34m"  \e[0m    39  \e[1;34m9\e[0m      66  \e[1;34mf\e[0m      7D  \e[1;34m}  \e[0m     BA  \e[1;34m╜\e[0m       D1  \e[1;34m╒\e[0m
+0C  \e[1;34mFF \e[0m    23  \e[1;34m#  \e[0m    3A  \e[1;34m:\e[0m      67  \e[1;34mg\e[0m      7E  \e[1;34m~  \e[0m     BB  \e[1;34m╛\e[0m       D2  \e[1;34m╓\e[0m
+0D  \e[1;34mCR \e[0m    24  \e[1;34m$  \e[0m    3B  \e[1;34m;\e[0m      68  \e[1;34mh\e[0m      7F  \e[1;34mDEL\e[0m     BC  \e[1;34m┐\e[0m       D3  \e[1;34m╫\e[0m
+0E  \e[1;34mSO \e[0m    25  \e[1;34m%  \e[0m    3C  \e[1;34m<\e[0m      69  \e[1;34mi\e[0m      xx          BD  \e[1;34m└\e[0m       D4  \e[1;34m╪\e[0m
+0F  \e[1;34mSI \e[0m    26  \e[1;34m&  \e[0m    3D  \e[1;34m=\e[0m      6A  \e[1;34mj\e[0m                  BE  \e[1;34m┴\e[0m       D5  \e[1;34m┘\e[0m
+10  \e[1;34mDLE\e[0m    27  \e[1;34m'  \e[0m    3E  \e[1;34m>\e[0m      6B  \e[1;34mk\e[0m                  BF  \e[1;34m├\e[0m       D6  \e[1;34m┌\e[0m
+11  \e[1;34mDC1\e[0m    28  \e[1;34m(  \e[0m    3F  \e[1;34m?\e[0m      6C  \e[1;34ml\e[0m                  C0  \e[1;34m─\e[0m       D7  \e[1;34m█\e[0m
+12  \e[1;34mDC2\e[0m    29  \e[1;34m)  \e[0m    40  \e[1;34m@\e[0m      6D  \e[1;34mm\e[0m                  C1  \e[1;34m┼\e[0m       D8  \e[1;34m▄\e[0m
+13  \e[1;34mDC3\e[0m    2A  \e[1;34m*  \e[0m    41  \e[1;34mA\e[0m      6E  \e[1;34mn\e[0m                  C2  \e[1;34m╞\e[0m       D9  \e[1;34m▌\e[0m
+14  \e[1;34mDC4\e[0m    2B  \e[1;34m+  \e[0m    42  \e[1;34mB\e[0m      6F  \e[1;34mo\e[0m                  C3  \e[1;34m╟\e[0m       DA  \e[1;34m▐\e[0m
+15  \e[1;34mNAK\e[0m    2C  \e[1;34m´  \e[0m    43  \e[1;34mC\e[0m      70  \e[1;34mp\e[0m                  C4  \e[1;34m╚\e[0m       DB  \e[1;34m▀\e[0m
+16  \e[1;34mSYN\e[0m    2D  \e[1;34m-  \e[0m    44  \e[1;34mD\e[0m      71  \e[1;34mq\e[0m                  C5  \e[1;34m╔\e[0m       xx
+
+... scheint dir ok?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\e[2m────────────────────────────────────────────────────────────────────────
+Beachten Sie bitte!
+
+Dieses Gerät und alle digitalen Ressourcen gemäß IRIS 4 (jedoch ohne die
+Software  von  Drittanbietern)  sind,  sofern  nicht  anders  angegeben,
+Eigentum der IC Root Node (ic.o) und ihrer Inhaber.
+────────────────────────────────────────────────────────────────────────\e[0m
+
+Sie sollten sich jetzt vorstellen ...

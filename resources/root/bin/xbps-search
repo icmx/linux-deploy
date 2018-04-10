@@ -1,0 +1,2 @@
+#/bin/sh
+xbps-query -R --seach ${@}
