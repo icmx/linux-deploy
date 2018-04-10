@@ -1,0 +1,31 @@
+/* bspwm fix */
+#context-navigation,
+#context-openlinkintab,
+#context-copy {
+  margin-top: 2px;
+}
+
+/* I don't really like Mozilla's external services */
+#context-pocket,
+#context-sendpagetodevice,
+#context-sep-sendpagetodevice,
+#screenshots_mozilla_org_create-screenshot {
+  display: none;
+}
+
+#context-savelinktopocket,
+#context-sendlinktodevice {
+  display: none;
+}
+
+#appMenu-library-pocket-button,
+#appMenu-library-remotetabs-button,
+#appMenu-library-screenshots {
+  display: none;
+}
+
+#pageAction-panel-pocket,
+#pageAction-panel-sendToDevice,
+#pageAction-panel-screenshots {
+  display: none;
+}

@@ -1,0 +1,9 @@
+[Added Associations]
+text/x-lua=sublime_text.desktop;
+image/png=viewnior.desktop;
+image/svg+xml=inkscape.desktop;
+text/plain=sublime_text.desktop;
+image/bmp=viewnior.desktop;
+
+[Default Applications]
+image/bmp=viewnior.desktop

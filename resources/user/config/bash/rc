@@ -1,0 +1,15 @@
+#!/bin/bash
+
+shopt -s "autocd"
+shopt -s "checkwinsize"
+
+if [ -z "${DISPLAY}" ]
+then
+  export PS1="\[\e[1;34m\]<\W>\[\e[0m\] "
+  export PS2="\[\e[1;34m\]>\[\e[0m\] "
+else
+  export PS1="\[\e[0m\]\[\e[1;34m\]█\[\e[0m\]\[\e[104m\]\W\[\e[0m\]\[\e[1;34m\]█\[\e[0m\] "
+  export PS2="\[\e[1;34m\]\[\e[0m\] "
+  export PROMPT_COMMAND='echo -en "\033]0;${PWD/#$HOME/'~'} - Terminal Emulator\a"'
+fi
+

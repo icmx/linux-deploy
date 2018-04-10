@@ -1,0 +1,224 @@
+# References
+#
+# Google Material Design Icons used (https://material.io/icons/)
+# Codepoints:
+#   <github.com/google/material-design-icons/blob/master/iconfont/codepoints>
+#
+#   battery_alert          e19c  
+#   battery_charging_full  e1a3  
+#   battery_full           e1a4  
+#   battery_std            e1a5  
+#   battery_unknown        e1a6  
+#   volume_down            e04d  
+#   volume_mute            e04e  
+#   volume_off             e04f  
+#   volume_up              e050  
+#   event                  e878  
+#   flip_to_back           e882  
+#   flip_to_front          e883  
+#   view_carousel          e8eb  
+#   view_quilt             e8f1  
+
+[colors]
+  background     = #0c0c0d
+  background-alt = #252526
+  foreground     = #b6c2c3
+  foreground-alt = #555
+  primary        = #ffb52a
+  secondary      = #e60053
+  alert          = #bd2c40
+
+[settings]
+  screenchange-reload = true
+
+[global/wm]
+  margin-top = 0
+  margin-bottom = 0
+
+[bar/default]
+#  monitor = eDP1
+  width = 100%
+  height = 28
+  radius = 0
+  fixed-center = true
+
+  background = ${colors.background}
+  foreground = ${colors.foreground}
+
+  line-color = #f00
+
+  border-size = 0
+  border-color = #00000000
+
+  padding-left = 0
+  padding-right = 0
+
+  module-margin-left = 2
+  module-margin-right = 2
+
+  font-0 = DejaVuSans:fontformat=truetype:size=10:antialias=true;0
+  font-1 = MaterialIcons:fontformat=truetype:size=8:antialias=true;0
+
+  modules-left = bspwm daysleft
+  modules-center = xwindow
+  modules-right = volume xkeyboard date
+
+  tray-position = right
+  tray-padding = 0
+# tray-transparent = true
+# tray-background = #0063ff
+
+  wm-name = bspwm
+  wm-restack = bspwm
+
+# scroll-up = bspwm-desknext
+# scroll-down = bspwm-deskprev
+
+# cursor-click = pointer
+  cursor-scroll = ns-resize
+
+
+[module/bspwm]
+  type = internal/bspwm
+
+  label-focused = %index%
+  label-focused-background = ${colors.background-alt}
+  label-focused-padding = 2
+
+  label-occupied = %index%
+  label-occupied-padding = 2
+
+  label-urgent =%index%
+  label-urgent-padding = 2
+#  label-urgent-background = ${colors.alert}
+
+  label-empty = %index%
+  label-empty-padding = 2
+  label-empty-foreground = ${colors.foreground-alt}
+
+
+[module/xwindow]
+  type = internal/xwindow
+  label = %title:0:48:…%
+
+
+[module/xkeyboard]
+  type = internal/xkeyboard
+  blacklist-0 = num lock
+  blacklist-1 = caps lock
+  blacklist-2 = scroll lock
+
+  label-layout = %layout%
+  label-layout-underline = ${colors.secondary}
+
+
+[module/date]
+  type = internal/date
+  label = %date% %time%
+
+  interval = 5
+
+  date = "2007-%m-%d "
+  date-alt = "%B %e, 2007"
+
+  time = "%H:%M, %A"
+  time-alt = "%H:%M, %A"
+
+
+[module/volume]
+  type = internal/volume
+  master-soundcard = hw:0
+  mapped = true
+
+  format-volume = <ramp-volume> <label-volume>
+  format-muted = <label-muted>
+
+  label-volume = %percentage%%
+  label-volume-foreground = ${root.foreground}
+
+  label-muted =  %percentage%%
+  label-muted-foreground = ${colors.foreground-alt}
+
+  ramp-volume-0 = 
+  ramp-volume-1 = 
+  ramp-volume-2 = 
+  ramp-volume-3 = 
+  ramp-volume-4 = 
+  ramp-volume-5 = 
+  ramp-volume-6 = 
+  ramp-volume-7 = 
+  ramp-volume-8 = 
+  ramp-volume-9 = 
+
+
+# Pulseaudio-only volume control
+# Currently unavailable (v3.1.0)
+# When it will be, uncomment this section, comment original volume
+# and replace default "volume" by "pulseaudio" in bar modules list
+#
+# [module/pulseaudio]
+#   type = internal/pulseaudio
+#   sink = alsa_output.pci-0000_12_00.3.analog-stereo
+#
+#   format-volume = <ramp-volume> <label-volume>
+#   format-muted = <label-muted>
+#
+#   label-volume = %percentage%%
+#   label-volume-foreground = ${root.foreground}
+#
+#   label-muted =  %percentage%
+#   label-muted-foreground = ${colors.foreground-alt}
+#
+#   ramp-volume-0 = 
+#   ramp-volume-1 = 
+#   ramp-volume-2 = 
+#   ramp-volume-3 = 
+#   ramp-volume-4 = 
+#   ramp-volume-5 = 
+#   ramp-volume-6 = 
+#   ramp-volume-7 = 
+#   ramp-volume-8 = 
+#   ramp-volume-9 = 
+
+
+[module/battery]
+  type = internal/battery
+  battery = BAT0
+  adapter = ADP0
+  full-at = 98
+
+  format-full = <label-full>
+  format-charging = <animation-charging> <label-charging>
+  format-discharging = <ramp-capacity> <label-discharging>
+
+  label-full =  %percentage%%
+
+  label-charging = %percentage%%
+  animation-charging-0 = 
+  animation-charging-1 = 
+  animation-charging-framerate = 500
+
+  label-discharging = %percentage%%
+  ramp-capacity-0 = 
+  ramp-capacity-1 = 
+  ramp-capacity-2 = 
+  ramp-capacity-3 = 
+  ramp-capacity-4 = 
+  ramp-capacity-5 = 
+  ramp-capacity-6 = 
+  ramp-capacity-7 = 
+  ramp-capacity-8 = 
+  ramp-capacity-9 = 
+
+  format-full-prefix-foreground = ${colors.foreground}
+  ramp-capacity-foreground = ${colors.foreground}
+  animation-charging-foreground = ${colors.foreground}
+
+
+[module/daysleft]
+  type = custom/script
+  exec = daysleft "2018" "05" "01"
+  interval = 60
+
+  format =  May: <label> days
+  label = %output%

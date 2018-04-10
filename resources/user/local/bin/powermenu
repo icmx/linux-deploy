@@ -1,0 +1,26 @@
+#!/bin/bash
+
+compton_pid=$(pidof compton)
+if [[ compton_pid -gt 0 ]]
+then
+  compton_label="Disable compositing"
+  compton_command="kill ${compton_pid}"
+else
+  compton_label="Enable compositing"
+  compton_command="compton --daemon"
+fi
+
+items="Do nothing\n${compton_label}\nDisable screen\nHibernate\nShutdown"
+result=$(
+  echo -e "${items}" | \
+  rofi -dmenu -p "Select power option:" -format "i"
+)
+
+case "${result}" in
+  "0")                      ;;
+  "1") ${compton_command} & ;;
+  "2") xset dpms force off  ;;
+  "3") sudo ZZZ             ;;
+  "4") sudo poweroff        ;;
+   * )                      ;;
+esac

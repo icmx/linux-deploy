@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "$HOME/.local/opt/firefox-stable/firefox" --no-remote --profile "$HOME/.local/var/mozilla/firefox/Profiles/Stable" "$@"

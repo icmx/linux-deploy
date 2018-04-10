@@ -1,0 +1,8 @@
+#!/bin/sh
+
+wineboot --update
+winetricks "d3dx9"
+winetricks "directmusic"
+#winetricks "dotnet35"
+#winetricks "dotnet45"
+#winetricks "dotnet46"

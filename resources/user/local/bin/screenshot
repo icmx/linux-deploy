@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# screenshot - screenshot shortcut
+#
+#   Currently uses "maim" and "notify-send" from "libnotify".
+
+SCREENSHOTS_DIR="${HOME}/Pictures/Screenshots"
+SCREENSHOT_NAME="$(date "+%s").png"
+SCREENSHOT_PATH="${SCREENSHOTS_DIR}/${SCREENSHOT_NAME}"
+
+maim --hidecursor ${@} "${SCREENSHOT_PATH}" &&
+notify-send --app-name "maim" --icon "${SCREENSHOT_PATH}" "Screenshot taken" "${SCREENSHOT_NAME}"

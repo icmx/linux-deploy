@@ -1,0 +1,9 @@
+#!/bin/bash
+
+clear
+
+echo -e "Hi, ${USER}.\n"
+
+source "${XDG_CONFIG_HOME}/bash/aliases"
+source "${XDG_CONFIG_HOME}/bash/variables"
+source "${XDG_CONFIG_HOME}/bash/functions"

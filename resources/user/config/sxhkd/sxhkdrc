@@ -1,0 +1,145 @@
+# Hotkeys
+
+# Application Hotkeys ##################################################   --
+
+## Applications Menu
+super + r
+  rofi -show "run"
+
+## Windows Menu
+super + w
+  rofi -show "window"
+
+## Terminal Emulator
+super + t
+  urxvt
+
+## File Manager
+super + e
+  nemo --no-desktop
+
+## Screen Locker
+super + l
+  physlock -p "At $(date +%R) ${HOSTNAME} was locked."
+
+## Screenshoter
+Print
+  screenshot
+control + Print
+  screenshot --select
+
+
+# System Control #######################################################   --
+
+## Volume Raise
+XF86AudioRaiseVolume
+  pactl set-sink-volume 0 +1%
+
+## Volume Lower
+XF86AudioLowerVolume
+  pactl set-sink-volume 0 -1%
+
+# Volume Mute Switch
+XF86AudioMute
+  pactl list sinks | grep --quiet "Mute: yes" && \
+    pactl set-sink-mute 0 false ||               \
+    pactl set-sink-mute 0 true
+
+## Brightness Raise
+XF86MonBrightnessUp
+  light -A 1
+
+## Broghtness Lower
+XF86MonBrightnessDown
+  light -U 1
+
+
+# Windows Control ######################################################   --
+
+## Focus
+super + Tab
+  bspc node --focus "next.local"; \
+  bspc node --layer above
+super + shift + Tab
+  bspc node --focus "prev.local"; \
+  bspc node --layer above
+alt + Tab
+  bspc node --focus "next.local"; \
+  bspc node --layer above
+alt + shift + Tab
+  bspc node --focus "prev.local"; \
+  bspc node --layer above
+
+## Swap
+super + ctrl + Tab
+  bspc node --swap "next.local"
+super + shift + ctrl + Tab
+  bspc node --swap "prev.local"
+super + z
+  bspc node --swap "biggest.local"
+## Rotate
+super + g
+  bspc node --focus "any.local"; \
+  bspc node --rotate 90; \
+  bspc node --focus "last.local"
+
+## States
+###                             m(a)ximized
+super + a
+  bspc desktop --layout "next"
+###                             (s)ticky
+super + s
+  bspc node --flag "sticky"
+###                             tile(d)
+super + d
+  bspc node --state "tiled"
+###                             (f)loat
+super + f
+  bspc node --state "floating"
+
+## Size Inward and Outward
+super + {Up,Right,Down,Left}
+  bspc node --resize {top 0 -20,right 20 0,bottom 20 0,left -20 0}
+super + shift + {Up,Right,Down,Left}
+  bspc node --resize {top 0 20,right -20 0,bottom 0 -20,left 20 0}
+
+## Side
+super + alt + {Up,Right,Down,Left}
+  bspc node --presel-dir {north,east,south,west}
+super + alt + space
+  bspc node --presel-dir cancel
+super + alt + shift + space
+  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+## Position (for float windows)
+super + ctrl + {Up,Right,Down,Left}
+  bspc node --move {0 -20,20 0,0 20,-20 0}
+
+## Desktop
+#   Desktops index in bspwm starts with 1
+super + shift + {1-9}
+  bspc node --to-desktop "^{1-9}"
+
+
+# Desktop Control ######################################################   --
+
+## Set
+super + {1-9}
+  bspc desktop --focus "^{1-9}"
+
+
+# Termination ##########################################################   --
+
+## Window
+super + q
+  bspc node --close
+super + shift + q
+  bspc node --kill
+
+##
+super + grave
+  powermenu
+
+## System
+super + ctrl + alt + q
+  false

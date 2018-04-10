@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# xinitrc - classic way to start X.org, window manager and related stuff
+#
+# By default it should be placed in "~/.xinitrc", but you can override
+# this path by modifying "/bin/startx" (it's a shell script).
+#
+# On Void you should run ConsoleKit2 before any other user applications,
+# even window manager. If your WM does not provide trivial way to define
+# autostart applications (such as composition managers or status bars),
+# then you can e.g. run wrapper script in "--exit-with-session" option
+# which will start WM along with autostart applications.
+#
+
+exec ck-launch-session "dbus-launch" --exit-with-session "bspwm"

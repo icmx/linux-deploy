@@ -1,0 +1,19 @@
+#!/bin/sh
+
+CONF="${HOME}/.config"
+
+export   PATH="${HOME}/.local/bin:$PATH"
+export EDITOR="/usr/bin/vi -e "
+export VISUAL="/bin/nano "
+
+export GIMP2_DIRECTORY="${XDG_CONFIG_HOME}/gimp/2.8"
+export   GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"
+export    LESSHISTFILE="${HOME}/.local/var/less/history"
+export  URXVT_PERL_LIB="${XDG_CONFIG_HOME}/urxvt/extensions"
+export    WEECHAT_HOME="${XDG_CONFIG_HOME}/weechat"
+export      WINEPREFIX="${HOME}/.local/var/wine/bottles/x32"
+export      XAUTHORITY="${XDG_CONFIG_HOME}/xorg/xauthority"
+
+export WALLPAPERS="${HOME}/Pictures/Wallpapers"
+export FIREFOX_PROFILE_BETA="${HOME}/.local/var/mozilla/firefox/Profiles/Beta"
+export FIREFOX_PROFILE_STABLE="${HOME}/.local/var/mozilla/firefox/Profiles/Stable"

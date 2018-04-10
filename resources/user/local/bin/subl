@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "$HOME/.local/opt/sublime_text/sublime_text" "$@"

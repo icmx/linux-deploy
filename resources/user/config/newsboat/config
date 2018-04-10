@@ -1,0 +1,13 @@
+auto-reload         yes
+bind-key            LEFT   quit
+bind-key            RIGHT  open
+cleanup-on-quit     no
+notify-always       no
+notify-format      "Newsboat: %n unread articles within %f unread feeds"
+notify-program      notify-send
+refresh-on-startup  yes
+reload-threads      2
+reload-time         20
+
+#show-read-articles no
+#show-read-feeds no

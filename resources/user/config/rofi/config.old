@@ -1,0 +1,15 @@
+rofi.font: Iosevka 12
+rofi.color-enabled: true
+rofi.hide-scrollbar: true
+rofi.sidebar-mode: true
+rofi.bw: 0
+rofi.cycle: true
+rofi.separator-style: solid
+rofi.line-margin: 2
+rofi.padding: 240
+rofi.width: 100
+rofi.fullscreen:true
+rofi.color-window: #90121212, #00121212, #00121212
+rofi.color-normal: #00121212, #b6c2c3, #00121212, #b6c2c3, #121212
+rofi.color-active: #00121212, #597b9e, #90121212, #597b9e, #b6c2c3
+rofi.color-urgent: #90121212, #b14d4c, #90121212, #b14d4c, #b6c2c3

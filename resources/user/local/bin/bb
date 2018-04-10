@@ -1,0 +1,69 @@
+#!/bin/sh
+
+# bb - dead simple pseudo-encryption tool
+#
+# Usage: bb <option> <target>
+#
+# Options:
+#
+#   -e, --encrypt  encrypt target; directory or file is expecting
+#   -d, --decrypt  decrypt target; BB1 file is expecting
+#   -h, --help     display this help
+#   -v, --version  display BB version
+#
+# BB encrypts and decrypts given target using standard shell utilities (base64, rev, tac and tar). It might be suitable when you need to allocate and "encrypt" some data using none of external software. Suppose you want to hide something from someone just for a while, who knows.
+#
+# WARNING: FOR SENSITIVE DATA PLEASE USE TRUSTED SOLUTIONS LIKE AES OR RSA ENCRYPTION ALGORITHMS. BB IS OBVIOUSLY NOT INTENDED TO BE USED ON YOUR SENSITIVE DATA AT ALL.
+
+BB_NAME="BB"
+BB_VERSION_MAJOR="1"
+BB_VERSION_MINOR="0"
+BB_VERSION_FIX="0"
+BB_VERSION="${BB_VERSION_MAJOR}.${BB_VERSION_MINOR}.${BB_VERSION_FIX}"
+BB_FILENAME_EXTENSION="bb${BB_VERSION_MAJOR}"
+
+encrypt() {
+  tar --create "${1}" | base64 | rev | tac > "${1}.${BB_FILENAME_EXTENSION}"
+}
+
+decrypt() {
+  tac "${1}" | rev | base64 --decode | tar --extract
+}
+
+show_help() {
+  local help_start=3  # script description starting line
+  local help_end=16   # script description ending line
+
+  cat                ${0}          | \
+  head --lines       ${help_end}   | \
+  tail --lines      +${help_start} | \
+  cut  --characters "3-"
+}
+
+show_version() {
+  echo "${BB_NAME} v${BB_VERSION}."
+}
+
+show_wrong_parameter() {
+  local name_shell="$(basename "${SHELL}")"
+  local name_binary="$(basename "${0}")"
+
+  if "${1}"
+  then
+    echo "${name_shell}: ${name_binary}: wrong parameter specified."
+    echo "Try ${name_binary} --help for usage."
+    exit 1
+  else
+    echo "${name_shell}: ${name_binary}: no parameters passed."
+    echo "Try ${name_binary} --help for usage."
+    exit 0
+  fi
+}
+
+case ${1} in
+  "-e"|"--encrypt") encrypt              "${2}" ;;
+  "-d"|"--decrypt") decrypt              "${2}" ;;
+  "-h"|"--help"   ) show_help                   ;;
+  "-v"|"--version") show_version                ;;
+                * ) show_wrong_parameter "${1}" ;;
+esac

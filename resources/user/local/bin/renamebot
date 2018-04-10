@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+__version__ = "1.0.0"
+__date__ = "2018-02-15"
+
+
+import argparse
+import datetime
+import os
+import re
+import subprocess
+import sys
+import time
+import logging
+
+
+NAME   = os.path.basename(sys.argv[0])
+
+parser = argparse.ArgumentParser(
+    prog=NAME,
+    formatter_class=argparse.RawTextHelpFormatter,
+    description="renamebot - a shitty Python 3 script to monitor and " \
+                "rename textual files in a given directory. Handful "  \
+                "in case if you like to save tons of random texts "    \
+                "but don't like to name them all manually.\n"          \
+                "\n"                                                   \
+                "Works best with libnotify installed.\n"               \
+                "\n"                                                   \
+                "Please note: this script renames (i.e. moves) file "  \
+                "irreversibly! Make sure you correctly set up "        \
+                "working directory and log file.",                     \
+    epilog="example:\n"                                                \
+           "  $ renamebot -i 60 -n ~/Documents/Random >> "             \
+           "~/renamebot.log &\n"                                       \
+           "\n"                                                        \
+           "\"~Documents/Random\" is working directory and "           \
+           "\"~/renamebot.log\" is log file specified via "            \
+           "standard output redirection. In turn, \"&\" makes "        \
+           "renamebot work in background.",
+    add_help=True
+)
+
+parser.add_argument("-i", "--interval", action="store",       default=10,    help="Interval between specified directory scannings, in seconds", metavar="SECONDS"  )
+parser.add_argument("-l", "--log",      action="store_false", default=True,  help="Log actions to standard output, enabled by default"                             )
+parser.add_argument("-n", "--notify",   action="store_true",  default=False, help="Notify via libnotify (notify-send), disabled by default"                        )
+parser.add_argument("-p", "--pretend",  action="store_true",  default=False, help="Pretend (log actions but do not perform them)"                                  )
+parser.add_argument("directory",        nargs=1,                             help="Directory to monitor",                                       metavar="DIRECTORY")
+
+args = parser.parse_args()
+
+DIRECTORY = "".join(args.directory)
+INTERVAL  =     int(args.interval)
+LOG       =         args.log
+NOTIFY    =         args.notify
+PRETEND   =         args.pretend
+
+FILE_NAME_LENGTH    = 28
+FILE_NAME_EXTENSION = "txt"
+
+
+def get_timestamp(base):
+    result = datetime.datetime.now().strftime("%s")
+    if base == 10:
+        return result
+    if base == 16:
+        return hex(int(result))[2:].upper()
+
+def is_formatted_name(file):
+    return     os.path.isfile(file)     and                            \
+           not os.access(file, os.X_OK) and                            \
+               re.match(                                               \
+                   "[0123456789abcdef]{8}-[\w\-\.]+",                  \
+                   os.path.basename(file)                              \
+                )
+
+def log(message):
+    if PRETEND:
+        message = "(pretending) {0}".format(message)
+    if LOG:
+        timestamp = get_timestamp(10)
+        print("{0}: at {1}: {2}".format(NAME, timestamp, message))
+    if NOTIFY:
+        subprocess.call(
+            ["notify-send", "--app-name", NAME, NAME, message]
+        )
+
+def rename(directory, name_old, name_new):
+    if not PRETEND:
+        os.rename(directory + "/"+ name_old, directory+ "/" + name_new)
+    log("File \"{0}\" is renamed to \"{1}\"".format(name_old, name_new))
+
+def get_first_nonempty(list_of_strings):
+    for string in list_of_strings:
+        result = string.strip()
+        if result:
+            return result
+
+def cut_right(string, new_length):
+    old_length = len(string)
+    act_length = new_length if old_length >= new_length else old_length
+
+    return string[0:act_length:1]
+
+def get_unwanted_removed(string):
+    result = string.lower()
+    return re.sub("(\W|\s|_)+", "-", result)
+
+def get_formatted_name(list_of_strings):
+    timestamp = get_timestamp(16)
+
+    first_nonempty = get_first_nonempty(list_of_strings)
+    unwanted_removed = get_unwanted_removed("{0}-{1}".format(
+        timestamp, first_nonempty
+    ))
+    cut = cut_right(unwanted_removed, FILE_NAME_LENGTH)
+
+    return "{0}.{1}".format(cut, FILE_NAME_EXTENSION)
+
+def main():
+    log("Started in \"{0}\"\nPress Ctrl + C to stop.".format(DIRECTORY))
+    while True:
+        for path in os.listdir(DIRECTORY):
+            name_old = os.fsdecode(path)
+            file = DIRECTORY + "/"+ name_old
+            if not is_formatted_name(file):
+                reader = open(file, "r")
+                name_new = get_formatted_name(reader.readlines())
+                reader.close()
+                rename(DIRECTORY, name_old, name_new)
+                time.sleep(1)
+        time.sleep(INTERVAL)
+
+if __name__ == "__main__":
+    main()

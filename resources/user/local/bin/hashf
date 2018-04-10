@@ -1,0 +1,4 @@
+#!/bin/sh
+
+FORMAT="%f\n  Size:      %s bytes\n  CRC32:     %c\n  SHA 1:     %h\n  SHA 2 256: %{sha-256}\n  SHA 3 512: %{sha3-512}\n\n"
+rhash --percents --printf "${FORMAT}" -- ${@}

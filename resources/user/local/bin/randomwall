@@ -1,0 +1,3 @@
+#!/bin/sh
+
+feh --no-fehbg --randomize --bg-fill "${WALLPAPERS}"*
