@@ -1,0 +1,47 @@
+{
+	"always_prompt_for_file_reload": true,
+	"always_show_minimap_viewport": true,
+	"caret_extra_bottom": 2,
+	"caret_extra_top": 2,
+	"caret_extra_width": 1,
+	"caret_style": "solid",
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.tmTheme",
+	"copy_with_empty_selection": false,
+	"drag_text": false,
+	"draw_indent_guides": true,
+	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Iosevka",
+	"font_options":
+	[
+		"subpixel_antialias"
+	],
+	"font_size": 11,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"margin": 0,
+	"move_to_limit_on_up_down": true,
+	"rulers":
+	[
+		72,
+		76,
+		80
+	],
+	"show_encoding": true,
+	"show_line_endings": true,
+	"show_tab_close_buttons": false,
+	"tab_size": 2,
+	"theme": "Adaptive.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_automatic_white_space": false,
+	"trim_trailing_white_space_on_save": true
+}

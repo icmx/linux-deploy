@@ -1,17 +1,22 @@
-resources/user/config/gimp/*
+/resources/user/config/gimp/*
 
-resources/user/config/gtk-2.0/gtkfilechooser.ini
-resources/user/config/gtk-3.0/bookmarks
+/resources/user/config/gtk-2.0/gtkfilechooser.ini
+/resources/user/config/gtk-3.0/bookmarks
 
-resources/user/config/mpv/watch_later/*
+/resources/user/config/mpv/watch_later/*
 
-resources/user/config/inkscape/*
+/resources/user/config/inkscape/*
 
-resources/user/config/sublime-text-3/Cache/*
-resources/user/config/sublime-text-3/Installed Packages/*
-resources/user/config/sublime-text-3/Local/*
-resources/user/config/sublime-text-3/Packages/*
-!resources/user/config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap
-!resources/user/config/sublime-text-3/Packages/User/Preferences.sublime-settings
+/resources/user/config/sublime-text-3/Cache/*
+/resources/user/config/sublime-text-3/Installed Packages/*
+/resources/user/config/sublime-text-3/Local/*
+/resources/user/config/sublime-text-3/Packages/*
+!/resources/user/config/sublime-text-3/Packages/User/
+/resources/user/config/sublime-text-3/Packages/User/*
+!/resources/user/config/sublime-text-3/Packages/User/Preferences.sublime-settings
+!/resources/user/config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap
 
-resources/user/config/xorg/xauthority
+/resources/user/config/xorg/xauthority
+
+
+!Preferences.sublime-settings
