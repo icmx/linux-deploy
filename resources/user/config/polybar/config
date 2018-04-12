@@ -35,8 +35,8 @@
   margin-top = 0
   margin-bottom = 0
 
-[bar/default]
-#  monitor = eDP1
+[bar/base]
+ #monitor = ???
   width = 100%
   height = 28
   radius = 0
@@ -65,18 +65,25 @@
 
   tray-position = right
   tray-padding = 0
-# tray-transparent = true
-# tray-background = #0063ff
 
   wm-name = bspwm
   wm-restack = bspwm
 
-# scroll-up = bspwm-desknext
-# scroll-down = bspwm-deskprev
+[bar/desktop]
+  monitor = HDMI1
+  inherit = bar/base
 
-# cursor-click = pointer
-  cursor-scroll = ns-resize
+  modules-left = bspwm daysleft
+  modules-center = xwindow
+  modules-right = volume-desktop xkeyboard date
 
+[bar/laptop]
+  monitor = eDP1
+  inherit = bar/base
+
+  modules-left = bspwm daysleft
+  modules-center = xwindow
+  modules-right = volume-laptop battery xkeyboard date
 
 [module/bspwm]
   type = internal/bspwm
@@ -125,9 +132,9 @@
   time-alt = "%H:%M, %A"
 
 
-[module/volume]
+[module/volume-base]
   type = internal/volume
-  master-soundcard = hw:0
+ #master-soundcard = ???
   mapped = true
 
   format-volume = <ramp-volume> <label-volume>
@@ -150,6 +157,15 @@
   ramp-volume-8 = 
   ramp-volume-9 = 
 
+[module/volume-desktop]
+  inherit = module/volume-base
+  type = internal/volume
+  master-soundcard = hw:0
+
+[module/volume-laptop]
+  inherit = module/volume-base
+  type = internal/volume
+  master-soundcard = hw:1
 
 # Pulseaudio-only volume control
 # Currently unavailable (v3.1.0)

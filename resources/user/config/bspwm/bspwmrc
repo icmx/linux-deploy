@@ -17,7 +17,7 @@ bspc config focus_follows_pointer true
 xrdb -merge "${XDG_CONFIG_HOME}/xorg/xresources"
 
 sxhkd                                                            &
-polybar "default"                                                &
+polybar "${ODG_PLATFORM}"                                        &
 nm-applet                                                        &
 compton --daemon                                                 &
 
