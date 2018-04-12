@@ -3,8 +3,8 @@
 CONF="${HOME}/.config"
 
 export   PATH="${HOME}/.local/bin:$PATH"
-export EDITOR="/usr/bin/vi -e "
-export VISUAL="/bin/nano "
+export EDITOR="/bin/vi"
+export VISUAL="subl --new-window"
 
 export GIMP2_DIRECTORY="${XDG_CONFIG_HOME}/gimp/2.8"
 export   GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"

@@ -13,7 +13,6 @@ bspc config presel_feedback_color "#597b9e"
 bspc config borderless_monocle    true
 bspc config gapless_monocle       true
 bspc config focus_follows_pointer true
-bspc config pointer_follows_focus true
 
 xrdb -merge "${XDG_CONFIG_HOME}/xorg/xresources"
 
@@ -22,8 +21,9 @@ polybar "default"                                                &
 nm-applet                                                        &
 compton --daemon                                                 &
 
+randomwall                                                       &
+
 urxvt -e "/bin/bash" -c "/bin/htop --user ${USER}"               &
 urxvt -e "/bin/bash" -c "/bin/su --login root --shell /bin/bash" &
 urxvt -e "/bin/bash"                                             &
 
-randomwall                                                       &
