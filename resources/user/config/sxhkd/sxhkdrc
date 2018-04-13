@@ -29,8 +29,8 @@ control + Print
   screenshot --select
 
 ##
-super + grave; super + {1,2}
-  {powermenu,mountmenu}
+super + grave; super + {1,2,3}
+  {powermenu,mountmenu,wallmenu}
 
 
 # System Control #######################################################   --

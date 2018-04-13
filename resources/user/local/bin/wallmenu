@@ -1,0 +1,4 @@
+#!/bin/bash
+
+result=$(ls ${WALLPAPERS} | rofi -dmenu)
+feh --no-fehbg --bg-fill "${WALLPAPERS}/${result}"
