@@ -71,7 +71,9 @@ proxy_unmount() {
 }
 
 proxy_notify() {
-  notify-send --urgency "normal" --icon "drive-removable-media" "$1" "$2"
+  notify-send --urgency "normal"                \
+              --icon    "drive-removable-media" \
+              "$1" "$2"
 }
 
 list_devices
