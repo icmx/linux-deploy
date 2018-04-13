@@ -59,3 +59,17 @@
   text-color: @background;
   background-color: @green10;
 }
+
+#message {
+    width: 20%;
+    background-color: @background;
+    border-color: @green10;
+    border: 4px;
+    padding: 4px;
+  text-color: @foreground;
+}
+
+#textbox {
+  text-color: @foreground;
+
+}

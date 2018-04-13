@@ -1,0 +1,77 @@
+#!/bin/bash
+
+list_devices() {
+  local devices=$(
+    udisksctl status | tail --lines +3 | while read i
+    do
+      name=$(echo ${i} | rev | cut --fields 2- --delimiter " " | rev)
+      disk=$(echo ${i} | rev | cut --fields 1  --delimiter " " | rev)
+      echo -e "/${disk} ${name}"
+    done
+  )
+
+  local result=$(
+    echo -e "Refresh\n${devices}" | \
+    rofi -dmenu -p "Select device to interact" -format "i:s"
+  )
+
+  case $result in
+    0:*) list_devices  ;;
+    *:*) list_options $(
+        echo $result    | \
+        cut -f 2 -d ":" | \
+        cut -f 1 -d " "
+      ) ;;
+  esac
+}
+
+list_options() {
+  local device="/dev${1}"
+  local options="Back"
+  local is_mounted=$(mount | grep ${device})
+  local control
+
+  if [[ "${is_mounted}" ]]
+  then
+    control="unmount"
+    options="Unmont\n${options}"
+  else
+    control="mount"
+    options="Mount gently\nMount rough\n${options}"
+  fi
+
+  local result=$(
+    echo -e ${options} | \
+    rofi -dmenu -p "What do you want to do?" -format "i"
+  )
+
+  case "${control}" in
+    unmount)
+      case "${result}" in
+        0) proxy_unmount ${device} ;;
+        1) list_devices ;;
+      esac ;;
+    mount  )
+      case "${result}" in
+        0) proxy_mount   ${device} ;;
+        1) proxy_mount   ${device} ;;
+        2) list_devices ;;
+      esac ;;
+  esac
+}
+
+proxy_mount()   {
+  local body="$(udisksctl mount   --block-device "${1}" 2>&1)"
+  proxy_send "File system mounted" "${body}"
+}
+
+proxy_unmount() {
+  local body="$(udisksctl unmount   --block-device "${1}" 2>&1)"
+  proxy_notify "File system unmounted" "${body}"
+}
+
+proxy_notify() {
+  notify-send --urgency "normal" --icon "drive-removable-media" "$1" "$2"
+}
+
+list_devices

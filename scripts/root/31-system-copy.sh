@@ -11,3 +11,4 @@ ln --force --relative --symbolic                        \
 ln --force --relative --symbolic --no-target-directory \
 "/etc/issue.${O_PALTFORM}"                             \
 "/etc/issue"
+
