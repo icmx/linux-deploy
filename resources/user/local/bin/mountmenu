@@ -62,7 +62,7 @@ list_options() {
 
 proxy_mount()   {
   local body="$(udisksctl mount   --block-device "${1}" 2>&1)"
-  proxy_send "File system mounted" "${body}"
+  proxy_notify "File system mounted" "${body}"
 }
 
 proxy_unmount() {

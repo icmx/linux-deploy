@@ -16,7 +16,7 @@ super + t
 
 ## File Manager
 super + e
-  nemo --no-desktop
+  urxvt -e "bash" -c "ranger"
 
 ## Screen Locker
 super + l
@@ -27,6 +27,10 @@ Print
   screenshot
 control + Print
   screenshot --select
+
+##
+super + grave; super + {1,2}
+  {powermenu,mountmenu}
 
 
 # System Control #######################################################   --
@@ -97,10 +101,13 @@ super + d
 super + f
   bspc node --state "floating"
 
-## Size Inward and Outward
 super + {Up,Right,Down,Left}
+  bspc node --focus {north,east,south,west}
+
+## Size Inward and Outward
+super + alt + {Up,Right,Down,Left}
   bspc node --resize {top 0 -20,right 20 0,bottom 20 0,left -20 0}
-super + shift + {Up,Right,Down,Left}
+super + alt + shift + {Up,Right,Down,Left}
   bspc node --resize {top 0 20,right -20 0,bottom 0 -20,left 20 0}
 
 ## Side
@@ -136,9 +143,6 @@ super + q
 super + shift + q
   bspc node --kill
 
-##
-super + grave
-  powermenu
 
 ## System
 super + ctrl + alt + q
