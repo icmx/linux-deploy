@@ -1,6 +1,6 @@
 # Linux Deploy
 
-resources, scripts and other stuff for my Linux systems. Works best with [Void Linux](https://www.voidlinux.eu/).
+Resources, scripts and other stuff for my Linux systems. Works best with [Void Linux](https://www.voidlinux.eu/).
 
 ## Usage
 
