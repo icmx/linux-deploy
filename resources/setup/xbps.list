@@ -157,7 +157,6 @@
   ranger                  # +tui File manager
   rhash                   # +cli Hashing tool (SHA 3 256 & 512 included)
   rtorrent                # +tui BitTorrent client
-  tiv                     # +cli Text image viewer, used for "ranger" ASCII previews. Imlib2/libcaca/img2txt binaries on void works only with BMPs
   tmux                    # +tui Terminal multiplexer (multi-screen provider)
   wget                    # +cli HTTP downloader/uploader, pair to "curl"
   xdg-user-dirs           # +cli
@@ -248,7 +247,7 @@
 #
 #   Unlike Wine, QEMU is true emulator which able to run almost any
 #   operating system including Unix-like, Microsoft® Windows®, Apple®
-#   macOS® and some others.
+#   macOS® and some other.
 #
 #   QEMU does not provide any graphical interface by itself since it's a
 #   command line application. Hovewer, you can use "virt-manager"
