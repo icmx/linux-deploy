@@ -173,7 +173,7 @@
   nemo                    # +gui Filemanager
   network-manager-applet  # +gui Network manager, provides "nm-applet" tray control, CLI "nmcli" and TUI "nmtui"
   pavucontrol             # +gui Interface for PulseAudio
-  transmission-cli        # +cli
+  transmission            # +cli
  #firefox                 # +gui +inap Provides only one version (stable) with no beta or nightly updates.
  #libreoffice             # +gui +inap Too big package so it's better to use flatpak for now
  #sublime-text            # +gui +3rdp Advanced text editor
