@@ -19,7 +19,7 @@ source "settings"
 for i in $(ls "scripts/${1}")
 do
   echo "Executing ${i} ..."
-  source "scripts/${i}"
+  source "scripts/root/${i}"
 done
 unset i
 
