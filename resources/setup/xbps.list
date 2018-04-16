@@ -169,8 +169,6 @@
 
 # Miscellaneous Graphical Utilities
 
-  file-roller             # +gui Archive manager. Requires "p7zip" to encrypt and decrypt the 7ZIP archives
-  nemo                    # +gui Filemanager
   network-manager-applet  # +gui Network manager, provides "nm-applet" tray control, CLI "nmcli" and TUI "nmtui"
   pavucontrol             # +gui Interface for PulseAudio
   transmission            # +cli
