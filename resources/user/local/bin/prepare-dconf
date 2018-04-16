@@ -1,3 +1,0 @@
-#!/bin/bash
-
-dconf load "/" < "${1:-"$HOME/.local/var/dconf/dconf.dump"}"
