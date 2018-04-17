@@ -16,7 +16,6 @@ mkdir --parents "${HOME}/Videos"
 mkdir --parents "${HOME}/Pictures/Wallpapers"
 mkdir --parents "${HOME}/Projects"
 
-mkdir --parents "${HOME}/.config/gimp/2.8"
 mkdir --parents "${HOME}/.local/var/bash"
 mkdir --parents "${HOME}/.local/var/less"
 mkdir --parents "${HOME}/.local/var/libvirt/images"

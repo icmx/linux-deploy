@@ -1,4 +1,5 @@
-/resources/user/config/gimp/*
+/resources/user/config/gimp/2.8/*
+!/resources/user/config/gimp/2.8/gimprc
 
 /resources/user/config/gtk-2.0/gtkfilechooser.ini
 /resources/user/config/gtk-3.0/bookmarks
