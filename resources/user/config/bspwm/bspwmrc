@@ -23,7 +23,3 @@ compton --daemon                                                 &
 
 randomwall                                                       &
 
-urxvt -e "/bin/bash" -c "/bin/htop --user ${USER}"               &
-urxvt -e "/bin/bash" -c "/bin/su --login root --shell /bin/bash" &
-urxvt -e "/bin/bash"                                             &
-
