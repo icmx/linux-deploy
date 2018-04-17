@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+
+cd "$(dirname $0)"
+self=$0
+mode=$1
+
+
+O_PLATFORM="desktop"
+
+O_RESOURCES="resources"
+O_SCRIPTS="scripts"
+
+O_SOFTWARE="xbps"
+O_SOFTWARE_COMMON="${O_SOFTWARE}.list"
+O_SOFTWARE_PLATFORM="${O_SOFTWARE}-${O_PLATFORM}.list"
+
+
+mode_remote() {
+  echo "Remote mode is currently not available."
+}
+
+mode_setup() {
+  local users="$(ls -1 "$O_SCRIPTS")"
+
+  for user in $users
+  do
+    local user=$(echo $user | cut --fields 2 --delimiter "-")
+    echo "Please enter a password for $user."
+    until su --login "$user" --command "$self for $user"
+    do
+      echo "    Something gone wrong."
+      echo "    Please enter a password for $user"
+      echo "    or press Ctrl+C to exit this script."
+    done
+  done
+}
+
+mode_for() {
+  local user=$1
+
+  for script in $(ls "$O_SCRIPTS/$user")
+  do
+    echo "Executing $script ..."
+    source "$O_SCRIPTS/$user/$script"
+  done
+  unset i
+}
+
+
+case $mode in
+  "remote") mode_remote ;;
+   "setup") mode_setup  ;;
+     "for") mode_for    ;;
+         *) mode_error  ;;
+esac

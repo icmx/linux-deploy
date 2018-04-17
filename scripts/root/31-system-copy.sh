@@ -9,6 +9,6 @@ ln --force --relative --symbolic                        \
   "/etc/fonts/conf.d"
 
 ln --force --relative --symbolic --no-target-directory \
-"/etc/issue.${O_PALTFORM}"                             \
+"/etc/issue.${O_PLATFORM}"                             \
 "/etc/issue"
 
