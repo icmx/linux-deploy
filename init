@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-
 cd "$(dirname $0)"
-self=$0
+
+self=$PWD/$0
 mode=$1
 
 
@@ -11,10 +11,11 @@ O_PLATFORM="desktop"
 O_RESOURCES="resources"
 O_SCRIPTS="scripts"
 
-O_SOFTWARE="xbps"
+O_SOFTWARE="${O_RESOURCES}/init/xbps"
 O_SOFTWARE_COMMON="${O_SOFTWARE}.list"
 O_SOFTWARE_PLATFORM="${O_SOFTWARE}-${O_PLATFORM}.list"
 
+O_NONROOT="user"
 
 mode_remote() {
   echo "Remote mode is currently not available."
@@ -34,10 +35,11 @@ mode_setup() {
       echo "    or press Ctrl+C to exit this script."
     done
   done
+  unset user
 }
 
 mode_for() {
-  local user=$1
+  local user=$2
 
   for script in $(ls "$O_SCRIPTS/$user")
   do
@@ -47,10 +49,13 @@ mode_for() {
   unset i
 }
 
+mode_error() {
+  echo "$self: $@: unknown command, exiting."
+}
 
 case $mode in
-  "remote") mode_remote ;;
-   "setup") mode_setup  ;;
-     "for") mode_for    ;;
-         *) mode_error  ;;
+  "remote") mode_remote    ;;
+   "setup") mode_setup     ;;
+     "for") mode_for    $@ ;;
+         *) mode_error  $@ ;;
 esac

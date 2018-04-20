@@ -1,8 +1,8 @@
 set -e
 echo "<root> Copying system configuration ..."
 
-cp --force --recursive "${O_TARGETS_ROOT_PATH}/etc" "/"
-cp --force --recursive "${O_TARGETS_ROOT_PATH}/bin" "/usr"
+cp --force --recursive "$O_RESOURCES/$USER/etc" "/"
+cp --force --recursive "$O_RESOURCES/$USER/bin" "/usr"
 
 ln --force --relative --symbolic                        \
   "/usr/share/fontconfig/conf.avail/70-no-bitmaps.conf" \

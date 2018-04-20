@@ -1,5 +1,5 @@
 set -e
-echo "<user> Creating initial hiararchy ..."
+echo "<user> Creating initial hierarchy ..."
 
 mkdir --parents "${HOME}/.config"
 mkdir --parents "${HOME}/.local"

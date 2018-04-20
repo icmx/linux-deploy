@@ -7,4 +7,4 @@ sed --in-place "s:\$HOME/.xinitrc:\$\{HOME\}/.config/xorg/xinitrc:g" "/bin/start
 
 # /etc/sudoers pacth
 # Removes "$USER" template by actual user name
-sed --in-place "s:\$USER:${O_TARGETS_USER}:g" "/etc/sudoers"
+sed --in-place "s:\$USER:${O_NONROOT}:g" "/etc/sudoers"
