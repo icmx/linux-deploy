@@ -5,6 +5,7 @@
 #
 # See main "xbps.list" file for details.
 
-  acpid  # +noui The only way to handle laptop lid events (e.g. to lock the screen) for me
-  light  # +cli  Screen brightness controlling tool
-  tlp    # +cli
+  acpid            # +noui The only way to handle laptop lid events (e.g. to lock the screen) for me
+  light            # +cli  Screen brightness controlling tool
+  tlp              # +cli
+  transmission-gtk #

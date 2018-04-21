@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+mode="$1"
+
+mode_mount_image() {
+  local image="$2"
+
+  if [[ ! -f "$2" ]]
+  then
+    echo "These is no such file \"$image\". Exiting."
+    exit 1
+  fi
+
+  local device=$(
+    udisksctl loop-setup --read-only --file "$image" | \
+    rev                                              | \
+    cut --fields 1 --delimiter " "                   | \
+    cut --fields 2 --delimiter "."                   | \
+    rev
+  )
+
+  mode_mount_device "$device"
+}
+
+mode_mount_device() {
+  local device="$1"
+  udisksctl mount --block-device "$device"
+}
+
+case $mode in
+  "device") mode_mount_device $@ ;;
+  "image" ) mode_mount_image  $@ ;;
+         *) echo "$mode: unknown mode, exiting." ; exit 1 ;;
+esac
