@@ -7,16 +7,16 @@ Resources, scripts and other stuff for my Linux systems. Works best with [Void L
 For automated deployment you need clean fresh-installed Void Linux system first. Once installed, obtain git package:
 
 ```sh
-  xbps-install -Su git
+xbps-install -Su git
 ```
 
 Next, clone this repository and run main installer as user:
 
 ```sh
-  git clone git://github.com/icmx/linux-deploy.git/
-  cd linux-deploy
-  # [ ... ] modify it as you like
-  bash setup
+git clone git://github.com/icmx/linux-deploy.git/
+cd linux-deploy
+# [ ... ] modify it as you like
+bash init
 ```
 
 Alternatively, you can look into [`resources`](resources) directory and grab some dotfiles manually.
