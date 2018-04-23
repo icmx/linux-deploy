@@ -1,11 +1,8 @@
-/* bspwm fix */
-#context-navigation,
-#context-openlinkintab,
-#context-copy {
-  margin-top: 2px;
-}
+/*
+  Mozilla Services
 
-/* I don't really like Mozilla's external services */
+  Hides annoying entries of Pocket and Sync services. I don't need them!
+*/
 #context-pocket,
 #context-sendpagetodevice,
 #context-sep-sendpagetodevice,
@@ -28,4 +25,15 @@
 #pageAction-panel-sendToDevice,
 #pageAction-panel-screenshots {
   display: none;
+}
+
+/*
+  bspwm Fix
+
+  Popups (context menus) on bspwm appears just under the cursor, which
+  activates them at once. To prevent this, one should add the padding
+  around each menu, 1-2 pixels will be ebough.
+*/
+menupopup {
+  padding: 2px;
 }

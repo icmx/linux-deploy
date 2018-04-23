@@ -16,6 +16,7 @@ ln --force --relative --symbolic --no-target-directory \
 
 mkdir --parents "/usr/obin"
 
-for file in $O_RESOURCES/root/bin/*; do
+for file in $O_RESOURCES/root/bin/*
+do
   ln --force --relative --symbolic "/usr/bin/$file" "/usr/obin"
 done
