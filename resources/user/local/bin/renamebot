@@ -14,25 +14,19 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-__version__ = "1.0.0"
-__date__ = "2018-02-15"
+from argparse   import ArgumentParser, RawTextHelpFormatter
+from datetime   import datetime
+from os         import fsdecode, listdir, path, rename
+from re         import match, sub
+from subprocess import call
+from time       import sleep
 
 
-import argparse
-import datetime
-import os
-import re
-import subprocess
-import sys
-import time
-import logging
+NAME   = "renamebot"
 
-
-NAME   = os.path.basename(sys.argv[0])
-
-parser = argparse.ArgumentParser(
+parser = ArgumentParser(
     prog=NAME,
-    formatter_class=argparse.RawTextHelpFormatter,
+    formatter_class=RawTextHelpFormatter,
     description="renamebot - a shitty Python 3 script to monitor and " \
                 "rename textual files in a given directory. Handful "  \
                 "in case if you like to save tons of random texts "    \
@@ -57,7 +51,6 @@ parser = argparse.ArgumentParser(
 parser.add_argument("-i", "--interval", action="store",       default=10,    help="Interval between specified directory scannings, in seconds", metavar="SECONDS"  )
 parser.add_argument("-l", "--log",      action="store_false", default=True,  help="Log actions to standard output, enabled by default"                             )
 parser.add_argument("-n", "--notify",   action="store_true",  default=False, help="Notify via libnotify (notify-send), disabled by default"                        )
-parser.add_argument("-p", "--pretend",  action="store_true",  default=False, help="Pretend (log actions but do not perform them)"                                  )
 parser.add_argument("directory",        nargs=1,                             help="Directory to monitor",                                       metavar="DIRECTORY")
 
 args = parser.parse_args()
@@ -66,41 +59,31 @@ DIRECTORY = "".join(args.directory)
 INTERVAL  =     int(args.interval)
 LOG       =         args.log
 NOTIFY    =         args.notify
-PRETEND   =         args.pretend
 
 FILE_NAME_LENGTH    = 28
 FILE_NAME_EXTENSION = "txt"
 
 
 def get_timestamp(base):
-    result = datetime.datetime.now().strftime("%s")
+    result = datetime.now().strftime("%s")
     if base == 10:
         return result
     if base == 16:
         return hex(int(result))[2:].upper()
 
 def is_formatted_name(file):
-    return     os.path.isfile(file)     and                            \
-           not os.access(file, os.X_OK) and                            \
-               re.match(                                               \
-                   "[0123456789abcdef]{8}-[\w\-\.]+",                  \
-                   os.path.basename(file)                              \
-                )
+    return path.isfile(file) and \
+           match("[0123456789abcdef]{8}-[\w\-\.]+", path.basename(file))
 
 def log(message):
-    if PRETEND:
-        message = "(pretending) {0}".format(message)
     if LOG:
         timestamp = get_timestamp(10)
         print("{0}: at {1}: {2}".format(NAME, timestamp, message))
     if NOTIFY:
-        subprocess.call(
-            ["notify-send", "--app-name", NAME, NAME, message]
-        )
+        call(["notify-send", "--app-name", NAME, NAME, message])
 
-def rename(directory, name_old, name_new):
-    if not PRETEND:
-        os.rename(directory + "/"+ name_old, directory+ "/" + name_new)
+def newname(directory, name_old, name_new):
+    rename(directory + "/"+ name_old, directory+ "/" + name_new)
     log("File \"{0}\" is renamed to \"{1}\"".format(name_old, name_new))
 
 def get_first_nonempty(list_of_strings):
@@ -117,7 +100,7 @@ def cut_right(string, new_length):
 
 def get_unwanted_removed(string):
     result = string.lower()
-    return re.sub("(\W|\s|_)+", "-", result)
+    return sub("(\W|\s|_)+", "-", result)
 
 def get_formatted_name(list_of_strings):
     timestamp = get_timestamp(16)
@@ -133,16 +116,16 @@ def get_formatted_name(list_of_strings):
 def main():
     log("Started in \"{0}\"\nPress Ctrl + C to stop.".format(DIRECTORY))
     while True:
-        for path in os.listdir(DIRECTORY):
-            name_old = os.fsdecode(path)
+        for path in listdir(DIRECTORY):
+            name_old = fsdecode(path)
             file = DIRECTORY + "/"+ name_old
             if not is_formatted_name(file):
                 reader = open(file, "r")
                 name_new = get_formatted_name(reader.readlines())
                 reader.close()
-                rename(DIRECTORY, name_old, name_new)
-                time.sleep(1)
-        time.sleep(INTERVAL)
+                newname(DIRECTORY, name_old, name_new)
+                sleep(1)
+        sleep(INTERVAL)
 
 if __name__ == "__main__":
     main()
