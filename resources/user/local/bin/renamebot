@@ -67,7 +67,7 @@ DIRECTORY           = "".join(args.directory)
 INTERVAL            =     int(args.interval)
 LOG                 =         args.log
 NOTIFY              =         args.notify
-FILE_NAME_EXTENSION = "txt"
+FILE_NAME_EXTENSION = ".txt"
 
 def get_timestamp(base):
     result = datetime.now().strftime("%s")
@@ -100,7 +100,7 @@ def get_new_name(node):
     timestamp = get_timestamp(16)
     formatted = get_formatted(read(node))
     extension = FILE_NAME_EXTENSION
-    return "{0}-{1}.{2}".format(timestamp, formatted, extension)
+    return "{0}-{1}{2}".format(timestamp, formatted, extension)
 
 def main():
     log("Started in {0}\nPress Ctrl+C to stop".format(DIRECTORY))
