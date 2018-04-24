@@ -14,10 +14,18 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-from argparse   import ArgumentParser, RawTextHelpFormatter
+from argparse   import ArgumentParser
+from argparse   import RawTextHelpFormatter
 from datetime   import datetime
-from os         import fsdecode, listdir, path, rename
-from re         import match, sub
+from os         import fsdecode
+from os         import listdir
+from os         import rename
+from os.path    import basename
+from os.path    import isdir
+from os.path    import isfile
+from os.path    import join
+from re         import match
+from re         import sub
 from subprocess import call
 from time       import sleep
 
@@ -55,25 +63,18 @@ parser.add_argument("directory",        nargs=1,                             hel
 
 args = parser.parse_args()
 
-DIRECTORY = "".join(args.directory)
-INTERVAL  =     int(args.interval)
-LOG       =         args.log
-NOTIFY    =         args.notify
-
-FILE_NAME_LENGTH    = 28
+DIRECTORY           = "".join(args.directory)
+INTERVAL            =     int(args.interval)
+LOG                 =         args.log
+NOTIFY              =         args.notify
 FILE_NAME_EXTENSION = "txt"
-
 
 def get_timestamp(base):
     result = datetime.now().strftime("%s")
     if base == 10:
         return result
     if base == 16:
-        return hex(int(result))[2:].upper()
-
-def is_formatted_name(file):
-    return path.isfile(file) and \
-           match("[0123456789abcdef]{8}-[\w\-\.]+", path.basename(file))
+        return hex(int(result))[2:]
 
 def log(message):
     if LOG:
@@ -82,49 +83,41 @@ def log(message):
     if NOTIFY:
         call(["notify-send", "--app-name", NAME, NAME, message])
 
-def newname(directory, name_old, name_new):
-    rename(directory + "/"+ name_old, directory+ "/" + name_new)
-    log("File \"{0}\" is renamed to \"{1}\"".format(name_old, name_new))
+def is_renamable(node):
+    return isfile(node) and \
+           not match("[0-9a-f]{8}-[\w\-\.]+", basename(node))
 
-def get_first_nonempty(list_of_strings):
-    for string in list_of_strings:
-        result = string.strip()
-        if result:
-            return result
+def read(path):
+    file = open(path, "r")
+    data = file.read(2000) # first two kilobytes
+    file.close()
+    return data
 
-def cut_right(string, new_length):
-    old_length = len(string)
-    act_length = new_length if old_length >= new_length else old_length
+def get_formatted(text):
+    return sub("(\W|\s|_)+", "-", text).strip("-").lower()[0:18]
 
-    return string[0:act_length:1]
-
-def get_unwanted_removed(string):
-    result = string.lower()
-    return sub("(\W|\s|_)+", "-", result)
-
-def get_formatted_name(list_of_strings):
+def get_new_name(node):
     timestamp = get_timestamp(16)
-
-    first_nonempty = get_first_nonempty(list_of_strings)
-    unwanted_removed = get_unwanted_removed("{0}-{1}".format(
-        timestamp, first_nonempty
-    ))
-    cut = cut_right(unwanted_removed, FILE_NAME_LENGTH)
-
-    return "{0}.{1}".format(cut, FILE_NAME_EXTENSION)
+    formatted = get_formatted(read(node))
+    extension = FILE_NAME_EXTENSION
+    return "{0}-{1}.{2}".format(timestamp, formatted, extension)
 
 def main():
-    log("Started in \"{0}\"\nPress Ctrl + C to stop.".format(DIRECTORY))
+    log("Started in {0}\nPress Ctrl+C to stop".format(DIRECTORY))
     while True:
-        for path in listdir(DIRECTORY):
-            name_old = fsdecode(path)
-            file = DIRECTORY + "/"+ name_old
-            if not is_formatted_name(file):
-                reader = open(file, "r")
-                name_new = get_formatted_name(reader.readlines())
-                reader.close()
-                newname(DIRECTORY, name_old, name_new)
-                sleep(1)
+        for item in listdir(DIRECTORY):
+            path = join(DIRECTORY, item)
+            if is_renamable(path):
+                old_name = path
+                new_name = get_new_name(path)
+                try:
+                    rename(old_name, new_name)
+                except:
+                    log("{0}: unable to rename".format(old_name))
+                else:
+                    log("{0}: renamed to {1}".format(old_name, new_name))
+                finally:
+                    sleep(1)
         sleep(INTERVAL)
 
 if __name__ == "__main__":
