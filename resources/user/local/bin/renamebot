@@ -56,10 +56,34 @@ parser = ArgumentParser(
     add_help=True
 )
 
-parser.add_argument("-i", "--interval", action="store",       default=10,    help="Interval between specified directory scannings, in seconds", metavar="SECONDS"  )
-parser.add_argument("-l", "--log",      action="store_false", default=True,  help="Log actions to standard output, enabled by default"                             )
-parser.add_argument("-n", "--notify",   action="store_true",  default=False, help="Notify via libnotify (notify-send), disabled by default"                        )
-parser.add_argument("directory",        nargs=1,                             help="Directory to monitor",                                       metavar="DIRECTORY")
+parser.add_argument(
+    "-i", "--interval",
+    action="store",
+    default=10,
+    help="Interval between specified directory scannings, in seconds",
+    metavar="SECONDS"
+)
+
+parser.add_argument(
+    "-l", "--log",
+    action="store_false",
+    default=True,
+    help="Log actions to standard output, enabled by default"
+)
+
+parser.add_argument(
+    "-n", "--notify",
+    action="store_true",
+    default=False,
+    help="Notify via libnotify (notify-send), disabled by default"
+)
+
+parser.add_argument(
+    "directory",
+    nargs=1,
+    help="Directory to monitor",
+    metavar="DIRECTORY"
+)
 
 args = parser.parse_args()
 
@@ -115,7 +139,7 @@ def main():
                 except:
                     log("{0}: unable to rename".format(old_name))
                 else:
-                    log("{0}: renamed to {1}".format(old_name, new_name))
+                    log("{0}: renamed to {1}".format(old_name,new_name))
                 finally:
                     sleep(1)
         sleep(INTERVAL)
