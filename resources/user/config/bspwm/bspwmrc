@@ -1,6 +1,11 @@
 #!/bin/sh
 
-bspc monitor --reset-desktops "1" "2" "3" "4" "5" "6" "7" "8" "9"
+case "$ODG_PLATFORM" in
+  "desktop")
+    bspc monitor --reset-desktops "1" "2" "3" "4" "5" "6" "7" "8" ;;
+  "laptop")
+    bspc monitor --reset-desktops "1" "2" "3" "4" ;;
+esac
 
 bspc config border_width 4
 bspc config window_gap   4
@@ -14,12 +19,15 @@ bspc config borderless_monocle    true
 bspc config gapless_monocle       true
 bspc config focus_follows_pointer true
 
-xrdb -merge "${XDG_CONFIG_HOME}/xorg/xresources"
+xrdb -merge "$XDG_CONFIG_HOME/xorg/xresources"
 
 sxhkd                                                            &
-polybar "${ODG_PLATFORM}"                                        &
+polybar "$ODG_PLATFORM"                                          &
 nm-applet                                                        &
 compton --daemon                                                 &
 
 randomwall                                                       &
 
+case "$ODG_PLATFORM" in
+  "desktop") transmission-daemon & ;;
+esac

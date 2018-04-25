@@ -6,12 +6,3 @@ echo -e "Hi, ${USER}.\n"
 
 source "${XDG_CONFIG_HOME}/bash/variables"
 source "${XDG_CONFIG_HOME}/bash/functions"
-
-
-case "$ODG_PLATFORM" in
-  "desktop" )
-    transmission-daemon                                                &&
-      echo "transmission-daemon started, we'll wait for connection..." ||
-      echo "unable to run transmission-daemon!"
-    ;;
-esac
