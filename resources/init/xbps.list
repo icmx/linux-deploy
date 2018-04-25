@@ -71,7 +71,6 @@
   maim                    # +cli Screenshooting tool
   sxhkd                   # +noui Hotkey daemon, handles keyboard shortcuts
   xautolock               # +cli X session autolocker (activates screen locker like "physlock" by timer)
-  zenity                  # +cli Tool to create GUI dialogs from scripts
 
 # Sound Core
 
@@ -213,6 +212,7 @@
   libtxc_dxtn-32bit       # +noui
   libv8-32bit             # +noui
   mesa-intel-dri-32bit    # +noui
+  mime-types              #
 
 # Virtualization and Compatibility: Flatpak
 #
