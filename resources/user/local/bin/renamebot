@@ -30,59 +30,54 @@ from subprocess import call
 from time       import sleep
 
 
-NAME   = "renamebot"
+NAME   = 'renamebot'
 
 parser = ArgumentParser(
     prog=NAME,
     formatter_class=RawTextHelpFormatter,
-    description="renamebot - a shitty Python 3 script to monitor and " \
-                "rename textual files in a given directory. Handful "  \
-                "in case if you like to save tons of random texts "    \
-                "but don't like to name them all manually.\n"          \
-                "\n"                                                   \
-                "Works best with libnotify installed.\n"               \
-                "\n"                                                   \
-                "Please note: this script renames (i.e. moves) file "  \
-                "irreversibly! Make sure you correctly set up "        \
-                "working directory and log file.",                     \
-    epilog="example:\n"                                                \
-           "  $ renamebot -i 60 -n ~/Documents/Random >> "             \
-           "~/renamebot.log &\n"                                       \
-           "\n"                                                        \
-           "\"~Documents/Random\" is working directory and "           \
-           "\"~/renamebot.log\" is log file specified via "            \
-           "standard output redirection. In turn, \"&\" makes "        \
-           "renamebot work in background.",
+    description='renamebot - a shitty Python 3 script to monitor and ' \
+                'rename textual files in a given directory. Handful '  \
+                'in case if you like to save tons of random texts '    \
+                'but don\'t like to name them all manually.\n'         \
+                '\n'                                                   \
+                'Works best with libnotify installed.\n'               \
+                '\n'                                                   \
+                'Please note: this script renames (i.e. moves) file '  \
+                'irreversibly! Make sure you correctly set up '        \
+                'working directory and log file.',                     \
+    epilog='example:\n'                                                \
+           '  $ renamebot -i 60 -n ~/Documents/Random >> '             \
+           '~/renamebot.log &\n',
     add_help=True
 )
 
 parser.add_argument(
-    "-i", "--interval",
-    action="store",
+    '-i', '--interval',
+    action='store',
     default=10,
-    help="Interval between specified directory scannings, in seconds",
-    metavar="SECONDS"
+    help='Interval between specified directory scannings, in seconds',
+    metavar='SECONDS'
 )
 
 parser.add_argument(
-    "-l", "--log",
-    action="store_false",
+    '-l', '--log',
+    action='store_false',
     default=True,
-    help="Log actions to standard output, enabled by default"
+    help='Log actions to standard output, enabled by default'
 )
 
 parser.add_argument(
-    "-n", "--notify",
-    action="store_true",
+    '-n', '--notify',
+    action='store_true',
     default=False,
-    help="Notify via libnotify (notify-send), disabled by default"
+    help='Notify via libnotify (notify-send), disabled by default'
 )
 
 parser.add_argument(
-    "directory",
+    'directory',
     nargs=1,
-    help="Directory to monitor",
-    metavar="DIRECTORY"
+    help='Directory to monitor',
+    metavar='DIRECTORY'
 )
 
 args = parser.parse_args()
@@ -91,10 +86,10 @@ DIRECTORY           = "".join(args.directory)
 INTERVAL            =     int(args.interval)
 LOG                 =         args.log
 NOTIFY              =         args.notify
-FILE_NAME_EXTENSION = ".txt"
+FILE_NAME_EXTENSION = '.txt'
 
 def get_timestamp(base):
-    result = datetime.now().strftime("%s")
+    result = datetime.now().strftime('%s')
     if base == 10:
         return result
     if base == 16:
@@ -103,31 +98,31 @@ def get_timestamp(base):
 def log(message):
     if LOG:
         timestamp = get_timestamp(10)
-        print("{0}: at {1}: {2}".format(NAME, timestamp, message))
+        print('{0}: at {1}: {2}'.format(NAME, timestamp, message))
     if NOTIFY:
-        call(["notify-send", "--app-name", NAME, NAME, message])
+        call(['notify-send', '--app-name', NAME, NAME, message])
 
 def is_renamable(node):
     return isfile(node) and \
-           not match("[0-9a-f]{8}-[\w\-\.]+", basename(node))
+           not match('[0-9a-f]{8}-[\w\-\.]+', basename(node))
 
 def read(path):
-    file = open(path, "r")
+    file = open(path, 'r')
     data = file.read(2000) # first two kilobytes
     file.close()
     return data
 
 def get_formatted(text):
-    return sub("(\W|\s|_)+", "-", text).strip("-").lower()[0:18]
+    return sub('(\W|\s|_)+', '-', text).strip('-').lower()[0:18]
 
 def get_new_name(node):
     timestamp = get_timestamp(16)
     formatted = get_formatted(read(node))
     extension = FILE_NAME_EXTENSION
-    return "{0}-{1}{2}".format(timestamp, formatted, extension)
+    return '{0}-{1}{2}'.format(timestamp, formatted, extension)
 
 def main():
-    log("Started in {0}\nPress Ctrl+C to stop".format(DIRECTORY))
+    log('Started in {0}\nPress Ctrl+C to stop'.format(DIRECTORY))
     while True:
         for item in listdir(DIRECTORY):
             path = join(DIRECTORY, item)
@@ -137,12 +132,12 @@ def main():
                 try:
                     rename(old_name, new_name)
                 except:
-                    log("{0}: unable to rename".format(old_name))
+                    log('{0}: unable to rename'.format(old_name))
                 else:
-                    log("{0}: renamed to {1}".format(old_name,new_name))
+                    log('{0}: renamed to {1}'.format(old_name,new_name))
                 finally:
                     sleep(1)
         sleep(INTERVAL)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
