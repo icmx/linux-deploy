@@ -17,7 +17,7 @@
 #   flip_to_back           e882  
 #   flip_to_front          e883  
 #   view_carousel          e8eb  
-#   view_quilt             e8f1  
+
 
 [colors]
   background     = #0c0c0d
@@ -59,10 +59,6 @@
   font-0 = DejaVuSans:fontformat=truetype:size=10:antialias=true;0
   font-1 = MaterialIcons:fontformat=truetype:size=8:antialias=true;0
 
-  modules-left = bspwm daysleft
-  modules-center = xwindow
-  modules-right = volume xkeyboard date
-
   tray-position = right
   tray-padding = 0
 
@@ -81,7 +77,7 @@
   monitor = eDP1
   inherit = bar/base
 
-  modules-left = bspwm daysleft
+  modules-left = bspwm bspwm-nodecontrol daysleft
   modules-center = xwindow
   modules-right = volume-laptop battery xkeyboard date
 
@@ -238,3 +234,13 @@
 
   format =  May: <label> days
   label = %output%
+
+
+[module/bspwm-nodecontrol]
+  type = custom/script
+  exec = echo 1
+  format = <label>
+  label = 
+  click-left  = bspc desktop --layout "next"
+  scroll-up   = bspc node --focus "next.local"; bspc node --layer above
+  scroll-down = bspc node --focus "prev.local"; bspc node --layer above

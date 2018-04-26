@@ -16,7 +16,7 @@ Next, clone this repository and run main installer as user:
 git clone git://github.com/icmx/linux-deploy.git/
 cd linux-deploy
 # [ ... ] modify it as you like
-bash init
+bash init setup
 ```
 
 Alternatively, you can look into [`resources`](resources) directory and grab some dotfiles manually.
