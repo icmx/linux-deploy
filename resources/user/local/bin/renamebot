@@ -82,7 +82,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-DIRECTORY           = "".join(args.directory)
+DIRECTORY           = ''.join(args.directory)
 INTERVAL            =     int(args.interval)
 LOG                 =         args.log
 NOTIFY              =         args.notify
@@ -98,7 +98,7 @@ def get_timestamp(base):
 def log(message):
     if LOG:
         timestamp = get_timestamp(10)
-        print('{0}: at {1}: {2}'.format(NAME, timestamp, message))
+        print('{0}: {1}: {2}'.format(NAME, timestamp, message))
     if NOTIFY:
         call(['notify-send', '--app-name', NAME, NAME, message])
 
@@ -124,8 +124,8 @@ def get_new_name(node):
 def main():
     log('Started in {0}\nPress Ctrl+C to stop'.format(DIRECTORY))
     while True:
-        for item in listdir(DIRECTORY):
-            path = join(DIRECTORY, item)
+        for name in listdir(DIRECTORY):
+            path = join(DIRECTORY, name)
             if is_renamable(path):
                 old_name = path
                 new_name = get_new_name(path)

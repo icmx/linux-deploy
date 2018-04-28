@@ -52,7 +52,10 @@
 #   Display server runs graphical applications (e.g. Firefox) and
 #   handles its windows via external components (see section below).
 
-  xorg                    # +noui Display by itself
+ #xorg                    # +noui Display by itself # Too bloat
+  xorg-minimal            #
+  xorg-fonts              #
+  xinit                   #
   xf86-input-libinput     # +noui Additional drivers to be sure
   xf86-video-fbdev        # +noui
   xf86-video-intel        # +noui
@@ -144,6 +147,7 @@
 
 # Miscellaneous Non-Graphical Utilities
 
+  gnuplot                 # +cli
   cronie                  # +cli Cron-like scheduler
   bc                      # +cli Calculator
   curl                    # +cli HTTP downloader/uploader, pair to "wget"
