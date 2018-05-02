@@ -1,24 +1,3 @@
-# References
-#
-# Google Material Design Icons used (https://material.io/icons/)
-# Codepoints:
-#   <github.com/google/material-design-icons/blob/master/iconfont/codepoints>
-#
-#   battery_alert          e19c  
-#   battery_charging_full  e1a3  
-#   battery_full           e1a4  
-#   battery_std            e1a5  
-#   battery_unknown        e1a6  
-#   volume_down            e04d  
-#   volume_mute            e04e  
-#   volume_off             e04f  
-#   volume_up              e050  
-#   event                  e878  
-#   flip_to_back           e882  
-#   flip_to_front          e883  
-#   view_carousel          e8eb  
-
-
 [colors]
   background     = #0c0c0d
   background-alt = #252526
@@ -229,10 +208,10 @@
 
 [module/daysleft]
   type = custom/script
-  exec = daysleft "2018" "05" "01"
+  exec = daysleft "2018" "06" "10"
   interval = 60
 
-  format =  May: <label> days
+  format =  DL: <label> days
   label = %output%
 
 

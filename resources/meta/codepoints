@@ -1,0 +1,205 @@
+# Special characters used in some parts of my configs.
+#
+# If you can't see some of characters in View column, then your font is
+# incompatible with such glyphs. You should patch your current font or
+# install an additional one.
+#
+# Google Material Icons (<https://material.io/icons>) are made by
+# Google. Full codepoints are available at GitHub: <github.com/google/
+# material-design-icons/blob/master/iconfont/codepoints>. To use them,
+# you have to install additional font package:
+#
+#  - ttf-material-icons (for Void Linux)
+#
+# Powerline idea belongs to Kim Silkebækken. I currently use Iosevka
+# font made by Belleve Invis, it support Powerline characters:
+#
+#  - font-iosevka (for Void Linux)
+#
+
+## Generic Unicode Codepoints ##########################################
+Name                                                          Code  View
+box_drawings_light_horizontal                                 2500  ─
+box_drawings_heavy_horizontal                                 2501  ━
+box_drawings_light_vertical                                   2502  │
+box_drawings_heavy_vertical                                   2503  ┃
+box_drawings_light_triple_dash_horizontal                     2504  ┄
+box_drawings_heavy_triple_dash_horizontal                     2505  ┅
+box_drawings_light_triple_dash_vertical                       2506  ┆
+box_drawings_heavy_triple_dash_vertical                       2507  ┇
+box_drawings_light_quadruple_dash_horizontal                  2508  ┈
+box_drawings_heavy_quadruple_dash_horizontal                  2509  ┉
+box_drawings_light_quadruple_dash_vertical                    250a  ┊
+box_drawings_heavy_quadruple_dash_vertical                    250b  ┋
+box_drawings_light_down_and_right                             250c  ┌
+box_drawings_down_light_and_right_heavy                       250d  ┍
+box_drawings_down_heavy_and_right_light                       250e  ┎
+box_drawings_heavy_down_and_right                             250f  ┏
+box_drawings_light_down_and_left                              2510  ┐
+box_drawings_down_light_and_left_heavy                        2511  ┑
+box_drawings_down_heavy_and_left_light                        2512  ┒
+box_drawings_heavy_down_and_left                              2513  ┓
+box_drawings_light_up_and_right                               2514  └
+box_drawings_up_light_and_right_heavy                         2515  ┕
+box_drawings_heavy_up_and_right                               2517  ┗
+box_drawings_light_up_and_left                                2518  ┘
+box_drawings_up_light_and_left_heavy                          2519  ┙
+box_drawings_heavy_up_and_left                                251b  ┛
+box_drawings_light_vertical_and_right                         251c  ├
+box_drawings_vertical_light_and_right_heavy                   251d  ┝
+box_drawings_up_heavy_and_right_down_light                    251e  ┞
+box_drawings_down_heavy_and_right_up_light                    251f  ┟
+box_drawings_vertical_heavy_and_right_light                   2520  ┠
+box_drawings_down_light_and_right_up_heavy                    2521  ┡
+box_drawings_up_light_and_right_down_heavy                    2522  ┢
+box_drawings_heavy_vertical_and_right                         2523  ┣
+box_drawings_light_vertical_and_left                          2524  ┤
+box_drawings_vertical_light_and_left_heavy                    2525  ┥
+box_drawings_up_heavy_and_left_down_light                     2526  ┦
+box_drawings_down_heavy_and_left_up_light                     2527  ┧
+box_drawings_vertical_heavy_and_left_light                    2528  ┨
+box_drawings_down_light_and_left_up_heavy                     2529  ┩
+box_drawings_up_light_and_left_down_heavy                     252a  ┪
+box_drawings_heavy_vertical_and_left                          252b  ┫
+box_drawings_light_down_and_horizontal                        252c  ┬
+box_drawings_left_heavy_and_right_down_light                  252d  ┭
+box_drawings_right_heavy_and_left_down_light                  252e  ┮
+box_drawings_down_light_and_horizontal_heavy                  252f  ┯
+box_drawings_down_heavy_and_horizontal_light                  2530  ┰
+box_drawings_right_light_and_left_down_heavy                  2531  ┱
+box_drawings_left_light_and_right_down_heavy                  2532  ┲
+box_drawings_heavy_down_and_horizontal                        2533  ┳
+box_drawings_light_up_and_horizontal                          2534  ┴
+box_drawings_left_heavy_and_right_up_light                    2535  ┵
+box_drawings_right_heavy_and_left_up_light                    2536  ┶
+box_drawings_up_light_and_horizontal_heavy                    2537  ┷
+box_drawings_up_heavy_and_horizontal_light                    2538  ┸
+box_drawings_right_light_and_left_up_heavy                    2539  ┹
+box_drawings_left_light_and_right_up_heavy                    253a  ┺
+box_drawings_heavy_up_and_horizontal                          253b  ┻
+box_drawings_light_vertical_and_horizontal                    253c  ┼
+box_drawings_left_heavy_and_right_vertical_light              253d  ┽
+box_drawings_right_heavy_and_left_vertical_light              253e  ┾
+box_drawings_vertical_light_and_horizontal_heavy              253f  ┿
+box_drawings_up_heavy_and_down_horizontal_light               2540  ╀
+box_drawings_down_heavy_and_up_horizontal_light               2541  ╁
+box_drawings_vertical_heavy_and_horizontal_light              2542  ╂
+box_drawings_left_up_heavy_and_right_down_light               2543  ╃
+box_drawings_right_up_heavy_and_left_down_light               2544  ╄
+box_drawings_left_down_heavy_and_right_up_light               2545  ╅
+box_drawings_right_down_heavy_and_left_up_light               2546  ╆
+box_drawings_down_light_and_up_horizontal_heavy               2547  ╇
+box_drawings_up_light_and_down_horizontal_heavy               2548  ╈
+box_drawings_right_light_and_left_vertical_heavy              2549  ╉
+box_drawings_left_light_and_right_vertical_heavy              254a  ╊
+box_drawings_heavy_vertical_and_horizontal                    254b  ╋
+box_drawings_light_double_dash_horizontal                     254c  ╌
+box_drawings_heavy_double_dash_horizontal                     254d  ╍
+box_drawings_light_double_dash_vertical                       254e  ╎
+box_drawings_heavy_double_dash_vertical                       254f  ╏
+box_drawings_double_horizontal                                2550  ═
+box_drawings_double_vertical                                  2551  ║
+box_drawings_down_single_and_right_double                     2552  ╒
+box_drawings_down_double_and_right_single                     2553  ╓
+box_drawings_double_down_and_right                            2554  ╔
+box_drawings_down_single_and_left_double                      2555  ╕
+box_drawings_down_double_and_left_single                      2556  ╖
+box_drawings_double_down_and_left                             2557  ╗
+box_drawings_up_single_and_right_double                       2558  ╘
+box_drawings_up_double_and_right_single                       2559  ╙
+box_drawings_double_up_and_right                              255a  ╚
+box_drawings_up_single_and_left_double                        255b  ╛
+box_drawings_up_double_and_left_single                        255c  ╜
+box_drawings_double_up_and_left                               255d  ╝
+box_drawings_vertical_single_and_right_double                 255e  ╞
+box_drawings_vertical_double_and_right_single                 255f  ╟
+box_drawings_double_vertical_and_right                        2560  ╠
+box_drawings_vertical_single_and_left_double                  2561  ╡
+box_drawings_vertical_double_and_left_single                  2562  ╢
+box_drawings_double_vertical_and_left                         2563  ╣
+box_drawings_down_single_and_horizontal_double                2564  ╤
+box_drawings_down_double_and_horizontal_single                2565  ╥
+box_drawings_double_down_and_horizontal                       2566  ╦
+box_drawings_up_single_and_horizontal_double                  2567  ╧
+box_drawings_up_double_and_horizontal_single                  2568  ╨
+box_drawings_double_up_and_horizontal                         2569  ╩
+box_drawings_vertical_single_and_horizontal_double            256a  ╪
+box_drawings_vertical_double_and_horizontal_single            256b  ╫
+box_drawings_double_vertical_and_horizontal                   256c  ╬
+box_drawings_light_arc_down_and_right                         256d  ╭
+box_drawings_light_arc_down_and_left                          256e  ╮
+box_drawings_light_arc_up_and_left                            256f  ╯
+box_drawings_light_arc_up_and_right                           2570  ╰
+box_drawings_light_diagonal_upper_right_to_lower left         2571  ╱
+box_drawings_light_diagonal_upper_left_to_lower right         2572  ╲
+box_drawings_light_diagonal_cross                             2573  ╳
+box_drawings_light_left                                       2574  ╴
+box_drawings_light_up                                         2575  ╵
+box_drawings_light_right                                      2576  ╶
+box_drawings_light_down                                       2577  ╷
+box_drawings_heavy_left                                       2578  ╸
+box_drawings_heavy_up                                         2579  ╹
+box_drawings_heavy_right                                      257a  ╺
+box_drawings_heavy_down                                       257b  ╻
+box_drawings_light_left_and_heavy_right                       257c  ╼
+box_drawings_light_up_and_heavy_down                          257d  ╽
+box_drawings_heavy_left_and_light_right                       257e  ╾
+upper_half_block                                              2580  ▀
+lower_one_eighth_block                                        2581  ▁
+lower_one_quarter_block                                       2582  ▂
+lower_three_eighths_block                                     2583  ▃
+lower_half_block                                              2584  ▄
+lower_five_eighths_block                                      2585  ▅
+lower_three_quarters_block                                    2586  ▆
+lower_seven_eighths_block                                     2587  ▇
+full_block                                                    2588  █
+left_seven_eighths_block                                      2589  ▉
+left_three_quarters_block                                     258a  ▊
+left_five_eighths_block                                       258b  ▋
+left_half_block                                               258c  ▌
+left_three_eighths_block                                      258d  ▍
+left_one_quarter_block                                        258e  ▎
+left_one_eighth_block                                         258f  ▏
+right_half_block                                              2590  ▐
+light_shade                                                   2591  ░
+medium_shade                                                  2592  ▒
+dark_shade                                                    2593  ▓
+upper_one_eighth_block                                        2594  ▔
+right_one_eighth_block                                        2595  ▕
+quadrant_lower_left                                           2596  ▖
+quadrant_lower_right                                          2597  ▗
+quadrant_upper_left                                           2598  ▘
+quadrant_upper_left_and_lower_left_and_lower_right            2599  ▙
+quadrant_upper_left_and_lower_right                           259a  ▚
+quadrant_upper_left_and_upper_right_and_lower_left            259b  ▛
+quadrant_upper_left_and_upper_right_and_lower_right           259c  ▜
+quadrant_upper_right                                          259d  ▝
+quadrant_upper_right_and_lower_left                           259e  ▞
+quadrant_upper_right_and_lower_left_and_lower_right           259f  ▟
+
+## Google Material Icons Codepoints (part of) ##########################
+Name                                                          Code  View
+battery_alert                                                 e19c  
+battery_charging_full                                         e1a3  
+battery_full                                                  e1a4  
+battery_std                                                   e1a5  
+battery_unknown                                               e1a6  
+volume_down                                                   e04d  
+volume_mute                                                   e04e  
+volume_off                                                    e04f  
+volume_up                                                     e050  
+event                                                         e878  
+flip_to_back                                                  e882  
+flip_to_front                                                 e883  
+view_carousel                                                 e8eb  
+
+## Powerline Codepoints ################################################
+Name                                                          Code  View
+n/a                                                           e0a0  
+n/a                                                           e0a1  
+n/a                                                           e0a2  
+n/a                                                           e0a3  
+n/a                                                           e0b0  
+n/a                                                           e0b1  
+n/a                                                           e0b2  
+n/a                                                           e0b3  
