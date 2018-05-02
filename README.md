@@ -23,8 +23,17 @@ Alternatively, you can look into [`resources`](resources) directory and grab som
 
 ## Contents
 
-  - **Configuration**
+  - **Resources** — configuration, executables and similar stuff
     - [System-wide](resources/root) — for system root directory as in [FHS](//en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)
     - [User-specific](resources/user) — for current user as in [XDG](//standards.freedesktop.org/basedir-spec/latest/)+FHS
+  - **Scripts** — scripts fot semi-automatic per-user system setup.
 
-Note that some of user-specific directories are made up and not officially supported by any software — e.g. Bash originally won't read the `~/.config/bash` contents. You should use symlinks or environment variables if you want to make it work.
+Note that some of user-specific configuration directories are made up and not officially supported by any software — e.g. Bash originally won't read the `~/.config/bash` contents. You should use symlinks or environment variables if you want to make it work.
+
+## TODO
+
+  - Replace `wget` by `curl` in setup scripts
+  - Clean polybar colors palette
+  - Add runit for non-root user (see smarden.org/runit/faq.html)
+  - Add full system setup (from live iso)
+  - Add remote setup mode (to install by `curl | bash`)
