@@ -2,7 +2,7 @@
   background     = #0c0c0d
   background-alt = #252526
   foreground     = #b6c2c3
-  foreground-alt = #555
+  foreground-alt = #555555
   primary        = #ffb52a
   secondary      = #e60053
   alert          = #bd2c40
@@ -15,7 +15,6 @@
   margin-bottom = 0
 
 [bar/base]
- #monitor = ???
   width = 100%
   height = 28
   radius = 0
@@ -25,9 +24,6 @@
   foreground = ${colors.foreground}
 
   line-color = #f00
-
-  border-size = 0
-  border-color = #00000000
 
   padding-left = 0
   padding-right = 0
@@ -40,6 +36,7 @@
 
   tray-position = right
   tray-padding = 0
+  tray-transparent = false
 
   wm-name = bspwm
   wm-restack = bspwm

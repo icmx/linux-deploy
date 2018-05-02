@@ -24,7 +24,7 @@ urxvt.perl-ext-common:  vtwheel
 urxvt.depth:       32
 !                           specials
 urxvt.foreground:  #b6c2c3
-urxvt.background:  [94]#0c0c0d
+urxvt.background:  [96]#0c0c0d
 urxvt.cursorColor: #b6c2c3
 !                             whites
 urxvt.color7:      #cccccc

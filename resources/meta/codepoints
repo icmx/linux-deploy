@@ -17,8 +17,10 @@
 #  - font-iosevka (for Void Linux)
 #
 
-## Generic Unicode Codepoints ##########################################
+
 Name                                                          Code  View
+
+## Generic Unicode Codepoints ##########################################
 box_drawings_light_horizontal                                 2500  ─
 box_drawings_heavy_horizontal                                 2501  ━
 box_drawings_light_vertical                                   2502  │
@@ -178,7 +180,6 @@ quadrant_upper_right_and_lower_left                           259e  ▞
 quadrant_upper_right_and_lower_left_and_lower_right           259f  ▟
 
 ## Google Material Icons Codepoints (part of) ##########################
-Name                                                          Code  View
 battery_alert                                                 e19c  
 battery_charging_full                                         e1a3  
 battery_full                                                  e1a4  
@@ -194,7 +195,6 @@ flip_to_front                                                 e883  
 view_carousel                                                 e8eb  
 
 ## Powerline Codepoints ################################################
-Name                                                          Code  View
 n/a                                                           e0a0  
 n/a                                                           e0a1  
 n/a                                                           e0a2  
