@@ -33,9 +33,10 @@ Note that some of user-specific configuration directories are made up and not of
 ## TODO
 
   - Replace `wget` by `curl` in setup scripts
+  - Fix system shortcuts (like hdq)
   - Clean polybar colors palette
   - Add runit for non-root user (see smarden.org/runit/faq.html)
   - Add full system setup (from live iso)
   - Add remote setup mode (to install by `curl | bash`)
-  - Add one-char symlinks (x for startx, r for ranger and such)
-  - Add */etc/issue* and update */etc/motd*
+  - Add one-char symlinks (x for startx, e for ranger and such)
+  - Add */etc/motd* and update */etc/issue*
