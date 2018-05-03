@@ -91,11 +91,8 @@
   polkit                  # +noui
 
 # Storages Mounting Support and Control
-#
-#   Mostly for devices like phones or tablets with only MTP support.
 
   gvfs                    # +noui
-  gvfs-mtp                # +noui
   eudev                   # +noui
   udisks2                 # +noui
 
@@ -113,6 +110,7 @@
   fuse-exfat              # +noui Full support for Microsoft® exFAT
   fuse-sshfs              # +noui
   ntfs-3g                 # +noui Full support for Microsoft® NTFS
+  mtpfs                   #
 
 # System Resources Controllers
 
@@ -126,7 +124,6 @@
   htop                    # +tui Process monitor, advanced "top" alternative
   jnettop                 # +tui "top"-like tool for connections (mostly for ethernet)
   lm_sensors              # +cli Hardware temperature info
-  powertop                # +tui "top"-like tool for power consumption and such
   ncdu                    # +tui Files disk usage
   lsof                    # +cli List open files
   tree                    # +cli Directories and files hierarchy printer

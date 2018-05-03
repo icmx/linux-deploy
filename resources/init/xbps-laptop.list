@@ -7,5 +7,6 @@
 
   acpid            # +noui The only way to handle laptop lid events (e.g. to lock the screen) for me
   light            # +cli  Screen brightness controlling tool
+  powertop         # +tui "top"-like tool for power consumption and such
   tlp              # +cli
   transmission-gtk #
