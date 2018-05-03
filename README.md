@@ -37,3 +37,5 @@ Note that some of user-specific configuration directories are made up and not of
   - Add runit for non-root user (see smarden.org/runit/faq.html)
   - Add full system setup (from live iso)
   - Add remote setup mode (to install by `curl | bash`)
+  - Add one-char symlinks (x for startx, r for ranger and such)
+  - Add */etc/issue* and update */etc/motd*
