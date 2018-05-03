@@ -156,10 +156,8 @@
   newsboat                # +tui Actively developing newsbeuter RSS reader fork
   p7zip                   # +cli 7ZIP archiving tool
   pandoc                  # +cli Document files converting tool
-  pwgen                   # +cli Passwords generator
   ranger                  # +tui File manager
   rhash                   # +cli Hashing tool (SHA 3 256 & 512 included)
-  rtorrent                # +tui BitTorrent client
   tmux                    # +tui Terminal multiplexer (multi-screen provider)
   wget                    # +cli HTTP downloader/uploader, pair to "curl"
   xdg-user-dirs           # +cli
