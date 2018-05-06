@@ -13,6 +13,14 @@ ln --force --relative --symbolic --no-target-directory \
   "/etc/issue.$O_PLATFORM"                             \
   "/etc/issue"
 
+ln --force --relative --symbolic --no-target-directory \
+  "/usr/bin/startx"  "/usr/local/bin/x"
+
+ln --force --relative --symbolic --no-target-directory \
+  "/usr/bin/ranger"  "/usr/local/bin/e"
+
+ln --force --relative --symbolic --no-target-directory \
+  "/usr/bin/bash"  "/usr/local/bin/b"
 
 mkdir --parents "/usr/obin"
 
