@@ -1,0 +1,1 @@
+paplay "$(dirname $0)/sound"
