@@ -1,76 +1,72 @@
 [global]
   ### Display ###
-  monitor = 0
-  follow = mouse
-  geometry = "320x5-16-16"
-  indicate_hidden = yes
-  shrink = no
-  transparency = 8
-  notification_height = 0
-  separator_height = 4
-  padding = 8
-  horizontal_padding = 8
-  frame_width = 4
-  frame_color = "#0c0c0d"
-  separator_color = frame
-  sort = yes
-  idle_threshold = 120
-  font = DejaVuSans 10
-  line_height = 0
-  markup = full
-  format = "<b>%s</b>\n%b"
-  alignment = left
-  show_age_threshold = 60
-  word_wrap = yes
-  ignore_newline = no
-  stack_duplicates = true
+  monitor              = 0
+  follow               = mouse
+  geometry             = "320x5-12-12"
+  indicate_hidden      = yes
+  shrink               = no
+  transparency         = 4
+  notification_height  = 0
+  separator_height     = 0
+  separator_color      = auto
+  padding              = 4
+  horizontal_padding   = 4
+  frame_width          = 4
+  separator_color      = frame
+  sort                 = yes
+  idle_threshold       = 120
+  font                 = DejaVuSans 10
+  line_height          = 0
+  markup               = full
+  format               = "<b>%s</b>\n%b"
+  alignment            = left
+  show_age_threshold   = 60
+  word_wrap            = yes
+  ignore_newline       = no
+  stack_duplicates     = true
   hide_duplicate_count = false
-  show_indicators = yes
+  show_indicators      = no
 
   ### Icons ###
   icon_position = left
   max_icon_size = 32
-  icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+  icon_path     = /usr/share/icons/gnome/32x32/status/:/usr/share/icons/gnome/32x32/devices/
 
   ### History ###
   sticky_history = yes
   history_length = 20
 
   ### Misc/Advanced ###
-  dmenu = /usr/bin/dmenu -p dunst:
-  browser = /usr/bin/firefox -new-tab
-  always_run_script = true
-  title = Dunst
-  class = Dunst
-  startup_notification = false
+  dmenu                = /usr/bin/rofi -p dunst:
+  browser              = /usr/bin/false
+  always_run_script    = true
+  title                = Dunst
+  class                = Dunst
+  startup_notification = true
 
   ### Legacy
   force_xinerama = false
 
-[experimental]
-  per_monitor_dpi = false
-
 [shortcuts]
-  close = ctrl+space
+  close     = ctrl+space
   close_all = ctrl+shift+space
-  history = ctrl+grave
-  context = ctrl+shift+period
+  history   = ctrl+grave
+  context   = ctrl+shift+period
 
 [urgency_low]
-  background = "#222222"
-    foreground = "#888888"
-    timeout = 10
-    #icon = /path/to/icon
+  background  = "#0c0c0d"
+  foreground  = "#474747"
+  frame_color = "#242424"
+  timeout     = 10
 
 [urgency_normal]
-    background = "#0c0c0d"  # "#285577"
-    foreground = "#ffffff"
-    timeout = 10
-    #icon = /path/to/icon
+  background  = "#0c0c0d"
+  foreground  = "#b6c2c3"
+  frame_color = "#b6c2c3"
+  timeout     = 10
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
-    frame_color = "#ff0000"
-    timeout = 0
-    #icon = /path/to/icon
+  background  = "#b14d4c"
+  foreground  = "#cccccc"
+  frame_color = "#e7504e"
+  timeout     = 0
