@@ -28,7 +28,8 @@ tor_version=$(
 
 pi "firefox-stable" "tar.bz2" "http://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US"
 pi "firefox-beta"   "tar.bz2" "http://download.mozilla.org/?product=firefox-beta-latest&os=linux64&lang=en-US"
-pi "sublime_text"   "tar.bz2" "http://download.sublimetext.com/sublime_text_3_build_3143_x64.tar.bz2"
+#pi "sublime_text"   "tar.bz2" "http://download.sublimetext.com/sublime_text_3_build_3143_x64.tar.bz2"
+pi "sublime_text"   "tar.bz2" "http://download.sublimetext.com/sublime_text_3_build_3170_x64.tar.bz2"
 pi "tor-browser"    "tar.xz"  "http://www.torproject.org/dist/torbrowser/${tor_version}/tor-browser-linux64-${tor_version}_en-US.tar.xz"
 
 cp --recursive "${HOME}/.local/var/mozilla/firefox/ProfilesTemplate" "${HOME}/.local/var/mozilla/firefox/Profiles/Beta"

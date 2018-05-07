@@ -74,5 +74,28 @@
 
 [play_sound]
   # This will play sound on any notification
+  #
+  # It currently uses simple one-line script with "paplay" and quindar
+  # beeping tone OGG file.
+  #
+  # To reproduce the quindar tone, one have to use Audacity. Go to
+  # Generate > Chirp, and create the following wave:
+  #
+  #   Waveform: Sine
+  #   Frequency:
+  #     Start 2525
+  #     End   2475
+  #   Amplitude:
+  #     Start 1
+  #     End   1
+  #   Interpolation: Linear
+  #   Duration: 00h 00m 00.250s (i.e. 250 milliseconds)
+  #
+  # Then adjust the volume, it will be too loud by default (see -/+ bar
+  # on the left side of generated track)
+  #
+  # Finally, go to File > Export and export in a format you like. I
+  # personally recommend OGG.
+
   summary = "*"
   script  = ~/.config/dunst/play

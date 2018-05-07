@@ -17,6 +17,7 @@ O_SOFTWARE_PLATFORM="${O_SOFTWARE}-${O_PLATFORM}.list"
 
 O_NONROOT="user"
 
+
 mode_remote() {
   echo "Remote mode is currently not available."
 }
