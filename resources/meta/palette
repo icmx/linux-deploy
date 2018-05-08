@@ -1,0 +1,25 @@
+# My current colors palette used in many of applications. It was
+# originally found somewhere at /r/unixporn, but unfortunately I can't
+# remember the name of author. Those colors was slightly modified since
+# then.
+
+group    name        value-hex-rgba
+
+special  background  #0c0c0d
+special  foreground  #b6c2c3
+basic    black-a     #242424
+basic    black-b     #474747
+basic    white-a     #cccccc
+basic    white-b     #9eacae
+basic    red-a       #b14d4c
+basic    red-b       #e7504e
+basic    green-a     #438064
+basic    green-b     #4ea272
+basic    blue-a      #2564c6
+basic    blue-b      #517292
+basic    cyan-a      #568081
+basic    cyan-b      #2b6d6e
+basic    magenta-a   #754e80
+basic    magenta-b   #8e6e9d
+basic    yellow-a    #f0e12b
+basic    yellow-b    #a6a84e

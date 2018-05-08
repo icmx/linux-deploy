@@ -6,7 +6,7 @@
 	"caret_extra_width": 1,
 	"caret_style": "solid",
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Color Scheme - Default/Mariana.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
 	"copy_with_empty_selection": false,
 	"drag_text": false,
 	"draw_indent_guides": true,
