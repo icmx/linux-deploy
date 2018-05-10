@@ -1,0 +1,128 @@
+#!/usr/bin/perl
+
+# Name
+#
+#     urxvt-vtwheel - scroll output by mouse wheel
+#
+# Description
+#
+#     This extension enables scrolling of URxvt output not only by
+#     keyboard, but by mouse wheel too.
+#
+# Installation
+#
+#     Place this extension in one of following directories:
+#
+#         /usr/lib/urxvt/perl    for system-wide
+#         ~/.urxvt/ext           for current user only
+#
+#     System-wide path above is oftenly maintaned by package managers in
+#     automatic mode and thus not recommended. One can also define a
+#     custom directories for extensions:
+#
+#     Using $URXVT_PERL_LIB environment variable:
+#
+#         export URXVT_PERL_LIB="$HOME/foo/bar"
+#
+#     Or, using URxvt.perl-lib field in X Resources file:
+#
+#         URxvt.perl-lib: /home/user/foo/bar
+#
+#     Both shell and X Resources values may contain multiple directories
+#     separated by colon (like in $PATH environment variable):
+#
+#         /path/one:/path/two:/and/yet/another/path
+#
+#     Note that typical shell expansions like ~ or environment variables
+#     are not supported for URxvt.perl-lib. Relative paths are
+#     recognizable, but they're always relative to URxvt current working
+#     directory (so not really useful).
+#
+#     When URxvt is looking for extensions, it will use paths in
+#     following order:
+#
+#         1. Paths in URxvt.perl-lib
+#         2. Paths in $URXVT_PERL_LIB
+#         3. ~/.urxvt/ext
+#         4. /usr/lib/urxvt/perl
+#
+# Usage
+#
+#     To enable installed extension, make sure you have URxvt.perl-ext
+#     field in X resources file. This field should contain filenames of
+#     extensions used, separated by comma. For instance:
+#
+#         urxvt.perl-ext: foo,bar,baz,urxvt-vtwheel
+#
+#     URxvt will search for listed files in following places:
+#
+#         1. All paths defined in URxvt.perl-lib
+#         2. All paths defined in $URXVT_PERL_LIB
+#         3. ~/.urxvt/ext
+#         4. /usr/lib/urxvt/perl
+#
+#     To apply changes, re-merge X resources with xrdb -merge ... then.
+#
+# Author
+#
+#     This extension was originally made by someone named PyroPeter.
+#     I found it in Arch User Reposotiry (AUR) at
+#     <https://aur.archlinux.org/packages/urxvt-vtwheel> with no any
+#     license specified.
+#
+# Bugs
+#
+#     Mouse scrolling is not working in git diff interactive mode.
+#
+# See Also
+#
+#     urxvt(5), urxvt(7)
+#
+
+use strict;
+use warnings;
+
+# Implements a scrollwheel just like in good old vt100's mices
+
+sub simulate_keypress {
+    my ($self, $type) = @_; #type: 0:up, 1:down
+
+    my $keycode_up = 111;
+    my $keycode_down = 116;
+
+    my $numlines = 3;
+
+    my $keycode = 0;
+    if ($type eq 0) {
+        $keycode = $keycode_up;
+    } elsif ($type eq 1) {
+        $keycode = $keycode_down;
+    } else {
+        return;
+    }
+
+    for (my $i = 0 ; $i ne $numlines ; $i++) {
+        $self->key_press(0,$keycode);
+        $self->key_release(0,$keycode);
+    }
+}
+
+sub on_button_release {
+    my ($self, $event) = @_;
+
+    #my $res_ss = $self->resource("secondaryScroll");
+    #warn("ressource ss is <$res_ss>");
+
+    !$self->current_screen and return ();
+
+    #warn("foo, event: <$event->{button}>\n");
+    if ($event->{button} eq "4") { # scroll up
+        $self->simulate_keypress(0);
+        return 1;
+    } elsif ($event->{button} eq "5") { # scroll down
+        $self->simulate_keypress(1);
+        return 1;
+    }
+
+    return ();
+}

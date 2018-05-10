@@ -3,7 +3,7 @@
 # Works for Bash and many other shells
 
 # Set default path (/usr/sbin:/sbin:/bin included for non-Void chroots)
-PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/usr/obin:/sbin:/bin"
+PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin"
 export PATH
 
 # Set default umask
