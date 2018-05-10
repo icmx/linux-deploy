@@ -38,7 +38,8 @@ Note that some of user-specific configuration directories are made up and not of
   - [x] Add one-char symlinks (x for startx, e for ranger and such)
   - [x] Clean dunst colors palette
   - [x] Add global colors palette to meta resources
-  - [x] ~~Add */etc/motd* and update */etc/issue*~~
-  - [ ] Add runit for non-root user (see smarden.org/runit/faq.html)
+  - [x] ~~Add */etc/motd* and update */etc/issue*~~ — *motd* is not necessary
+  - [x] ~~Add runit for non-root user (see smarden.org/runit/faq.html)~~ — overkill for user
+  - [ ] Clean custom scripts location (*obin*? what? */usr/local* may be?)
   - [ ] Add full system setup (from live iso)
   - [ ] Add remote setup mode (to install by `curl | bash`)
