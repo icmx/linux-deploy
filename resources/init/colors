@@ -3,7 +3,7 @@
 # remember the name of author. Those colors was slightly modified since
 # then.
 
-group    name        value-hex-rgba
+Group    Name        ValueHexRGBA
 
 special  background  #0c0c0d
 special  foreground  #b6c2c3
