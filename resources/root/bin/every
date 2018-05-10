@@ -1,0 +1,40 @@
+#!/bin/bash
+
+args_count=${#}
+args_interval=$(
+  echo ${1} |\
+  grep --perl-regexp --only-matching "^\d+(\.\d+)?[smhd]$"
+  # Will search for integer or float numbers followed by characters
+  # 's', 'm', 'h' or 'd' as defined in sleep manual
+)
+args_command=${@:2}
+logs_output=$(tty)
+
+
+if [ "${args_count}" -eq 0 ]; then
+  echo "Usage: every INTERVAL COMMAND"
+  echo "INTERVAL must be specified as in sleep(1)"
+  echo "COMMAND must be any valid shell command or script"
+  exit 0
+fi
+
+if [ -z "${args_interval}" ]; then
+  echo "Incorrect interval specified, exiting."
+  echo "Please specify an interval as in sleep(1)"
+  echo "Example: 1h (for one hour)"
+  exit 1
+fi
+
+if [ "${args_count}" -eq 1 ]; then
+  echo "No command specified to run in the interval, exiting."
+  echo "Please specify command or shell script to run"
+  echo "Example: uptime >> loads.log"
+  exit 2
+fi
+
+
+echo "every ${args_interval}: execute ${args_command}" > ${logs_output}
+while true; do
+  command ${args_command}
+  sleep  "${args_interval}"
+done
