@@ -41,6 +41,8 @@ Note that some of user-specific configuration directories are made up and not of
   - [x] ~~Add */etc/motd* and update */etc/issue*~~ — *motd* is not necessary
   - [x] ~~Add runit for non-root user (see smarden.org/runit/faq.html)~~ — overkill for user
   - [x] Clean custom scripts location (*obin*? what? */usr/local* may be?)
+  - [ ] Fix global colors list, use classic "bright\*" colors
   - [ ] Add insertmenu user script
+  - [ ] Try to drop *virt-manager*
   - [ ] Add full system setup (from live iso)
   - [ ] Add remote setup mode (to install by `curl | bash`)
