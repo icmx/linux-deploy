@@ -6,19 +6,19 @@
 #
 # Description
 #
-#     This extension enables scrolling of URxvt output not only by
-#     keyboard, but by mouse wheel too.
+#     Enables scrolling of URxvt output not only by keyboard, but by
+#     mouse wheel too.
 #
 # Installation
 #
-#     Place this extension in one of following directories:
+#     Place this file in one of the following directories:
 #
 #         /usr/lib/urxvt/perl    for system-wide
 #         ~/.urxvt/ext           for current user only
 #
-#     System-wide path above is oftenly maintaned by package managers in
+#     System-wide path above is usually maintaned by package managers in
 #     automatic mode and thus not recommended. One can also define a
-#     custom directories for extensions:
+#     custom directory for extension files:
 #
 #     Using $URXVT_PERL_LIB environment variable:
 #
@@ -34,18 +34,10 @@
 #         /path/one:/path/two:/and/yet/another/path
 #
 #     Note that typical shell expansions like ~ or environment variables
-#     are not supported for URxvt.perl-lib. Relative paths are
+#     are not supported for URxvt.perl-lib field. Relative paths are
 #     recognizable, but they're always relative to URxvt current working
 #     directory (so not really useful).
-#
-#     When URxvt is looking for extensions, it will use paths in
-#     following order:
-#
-#         1. Paths in URxvt.perl-lib
-#         2. Paths in $URXVT_PERL_LIB
-#         3. ~/.urxvt/ext
-#         4. /usr/lib/urxvt/perl
-#
+
 # Usage
 #
 #     To enable installed extension, make sure you have URxvt.perl-ext
@@ -56,12 +48,13 @@
 #
 #     URxvt will search for listed files in following places:
 #
-#         1. All paths defined in URxvt.perl-lib
-#         2. All paths defined in $URXVT_PERL_LIB
-#         3. ~/.urxvt/ext
-#         4. /usr/lib/urxvt/perl
+#         1. First, in all the paths defined in URxvt.perl-lib
+#         2. Next, in all the paths defined in $URXVT_PERL_LIB
+#         3. Next, in ~/.urxvt/ext
+#         4. Finally, in /usr/lib/urxvt/perl
 #
-#     To apply changes, re-merge X resources with xrdb -merge ... then.
+#     To apply changes, don't forget to re-merge X resources with XRDB
+#     command xrdb -merge "x-resources-file".
 #
 # Author
 #

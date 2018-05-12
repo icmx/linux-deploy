@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 # daysleft - simple Python 3 script to count days until specified date
 # It's actually uses three positional arguments for year, month and day
@@ -17,10 +17,13 @@
 from datetime import date
 from sys      import argv
 
-def main():
+def daysleft(year, month, day):
     a = date.today()
-    b = date(int(argv[1]), int(argv[2]), int(argv[3]))
-    print((b - a).days)
+    b = date(year, month, day)
+    return (b - a).days
+
+def main():
+    print(daysleft(int(argv[1]), int(argv[2]), int(argv[3])))
 
 if __name__ == '__main__':
     main()

@@ -43,6 +43,9 @@ Note that some of user-specific configuration directories are made up and not of
   - [x] Clean custom scripts location (*obin*? what? */usr/local* may be?)
   - [ ] Fix global colors list, use classic "bright\*" colors
   - [ ] Add insertmenu user script
+  - [ ] Add *prefs.js* Firefox preferences
+  - [ ] Fix *prepare-libvirt-ga* script
+  - [ ] Clean system and user script shortcuts
   - [ ] Try to drop *virt-manager*
   - [ ] Add full system setup (from live iso)
   - [ ] Add remote setup mode (to install by `curl | bash`)

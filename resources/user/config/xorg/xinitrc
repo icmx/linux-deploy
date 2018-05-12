@@ -2,8 +2,10 @@
 
 # xinitrc - classic way to start X.org, window manager and related stuff
 #
-# By default it should be placed in "~/.xinitrc", but you can override
-# this path by modifying "/bin/startx" (it's a shell script).
+# By default it should be placed in ~/.xinitrc, but you can override
+# this path by modifying startx shell script (it's usually located at
+# /bin/startx). Don't modify default version from /bin - copy it into
+# /usr/local/bin and edit there instead.
 #
 # On Void you should run ConsoleKit2 before any other user applications,
 # even window manager. If your WM does not provide trivial way to define
