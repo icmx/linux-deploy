@@ -7,19 +7,19 @@ Group    Name             ValueHexRGBA
 
 special  background      #0c0c0d
 special  foreground      #b6c2c3
-basic    black-normal    #242424
+basic    black           #242424
 basic    black-bright    #474747
-basic    white-normal    #cccccc
+basic    white           #cccccc
 basic    white-bright    #9eacae
-basic    red-normal      #b14d4c
+basic    red             #b14d4c
 basic    red-bright      #e7504e
-basic    green-normal    #438064
+basic    green           #438064
 basic    green-bright    #4ea272
-basic    blue-normal     #2564c6
+basic    blue            #2564c6
 basic    blue-bright     #517292
-basic    cyan-normal     #568081
+basic    cyan            #568081
 basic    cyan-bright     #2b6d6e
-basic    magenta-normal  #754e80
+basic    magenta         #754e80
 basic    magenta-bright  #8e6e9d
-basic    yellow-normal   #f0e12b
+basic    yellow          #f0e12b
 basic    yellow-bright   #a6a84e

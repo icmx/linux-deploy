@@ -1,22 +1,22 @@
 [colors]
-  background = #0c0c0d
-  foreground = #b6c2c3
-  white-a    = #cccccc
-  white-b    = #9eacae
-  red-a      = #b14d4c
-  red-b      = #e7504e
-  green-a    = #438064
-  green-b    = #4ea272
-  blue-a     = #2564c6
-  blue-b     = #517292
-  cyan-a     = #568081
-  cyan-b     = #2b6d6e
-  magenta-a  = #754e80
-  magenta-b  = #8e6e9d
-  yellow-a   = #f0e12b
-  yellow-b   = #a6a84e
-  black-a    = #242424
-  black-b    = #474747
+  background     = #0c0c0d
+  foreground     = #b6c2c3
+  white          = #cccccc
+  white-bright   = #9eacae
+  red            = #b14d4c
+  red-bright     = #e7504e
+  green          = #438064
+  green-bright   = #4ea272
+  blue           = #2564c6
+  blue-bright    = #517292
+  cyan           = #568081
+  cyan-bright    = #2b6d6e
+  magenta        = #754e80
+  magenta-bright = #8e6e9d
+  yellow         = #f0e12b
+  yellow-bright  = #a6a84e
+  black          = #242424
+  black-bright   = #474747
 
 [settings]
   screenchange-reload = true
@@ -65,7 +65,7 @@
 
   label-focused            = %index%
   label-focused-foreground = ${colors.foreground}
-  label-focused-background = ${colors.blue-b}
+  label-focused-background = ${colors.blue-bright}
   label-focused-padding    = 2
 
   label-occupied           = %index%
@@ -73,11 +73,11 @@
 
   label-urgent             = %index%
   label-urgent-foreground  = ${colors.foreground}
-  label-urgent-background  = ${colors.red-b}
+  label-urgent-background  = ${colors.red-bright}
   label-urgent-padding     = 2
 
   label-empty              = %index%
-  label-empty-foreground   = ${colors.black-b}
+  label-empty-foreground   = ${colors.black-bright}
   label-empty-background   = ${colors.background}
   label-empty-padding      = 2
 
