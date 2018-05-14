@@ -50,41 +50,42 @@
 #
 #   Display server runs graphical applications (e.g. Firefox) and
 #   handles its windows via external components (see section below).
+#
 
- #xorg                    # +noui Display by itself # Too bloat
-  xorg-minimal            #
-  xorg-fonts              #
-  xinit                   #
+  xorg-minimal            # +noui Minimal X.Org package
+  xorg-fonts              # +noui Basic X.Org fonts
+  xinit                   # +cli Helper to run X.Org by startx script
   xf86-input-libinput     # +noui Additional drivers to be sure
   xf86-video-fbdev        # +noui
   xf86-video-intel        # +noui
 
 # Graphics Core: X.Org User Environment
 #
-#   Applications vital for user graphical interaction
+#   Applications vital for user graphical interaction.
+#
 
-  bspwm                   # +noui Window manager, handles application windows separately
-  compton                 # +noui Composite manager, draws window shadows and opacity effects
-  dunst                   # +gui Notofications provider
-  physlock                # +cli Screen locker, locks not only the X session, but TTY's too
+  bspwm                   # +noui Window manager to handle windows separately
+  compton                 # +noui Composite manager to draw window shadow and opacity effects
+  dunst                   # +gui Notifications daemon
+  physlock                # +cli Screen locker, locks not only X session, but TTY's too
   polybar                 # +gui Statusbar to display date, battery, volume etc.
   rofi                    # +gui Applications launcher and windows switcher
   rxvt-unicode            # +gui Terminal emulator
   maim                    # +cli Screenshooting tool
-  sxhkd                   # +noui Hotkey daemon, handles keyboard shortcuts
-  xautolock               # +cli X session autolocker (activates screen locker like "physlock" by timer)
+  sxhkd                   # +noui Hotkey daemon to handle keyboard shortcuts
 
 # Sound Core
 
   alsa-lib                # +noui ALSA
   alsa-utils              # +cli
   alsa-plugins-pulseaudio # +noui
-  pulseaudio              # +cli Pulseaudio server that stands on top of ALSA
+  pulseaudio              # +cli Pulseaudio server on top of ALSA
 
 # User Access Policies Support Control
 #
 #   These packages basically need to provide side applications some
-#   extra privileges
+#   extra privileges.
+#
 
   ConsoleKit2             # +noui
   polkit                  # +noui
@@ -95,6 +96,13 @@
   eudev                   # +noui
   udisks2                 # +noui
 
+# External File Systems Support
+
+  fuse-exfat              # +noui Support for Microsoft® exFAT
+  fuse-sshfs              # +noui Support for SSHFS
+  mtpfs                   # +noui Support for MTP (tablets, phones, etc.)
+  ntfs-3g                 # +noui Support for Microsoft® NTFS
+
 # Miscelaneous System Core Components
 
   dbus                    # +noui
@@ -102,14 +110,7 @@
   gnome-keyring           # +noui For "NetworkManager"
   hostapd                 # +noui Provides means to create wireless access point
   ntp                     # +noui
-  socklog-void            # +noui Logger, I personally use it just to hide NetworkManager annoying TTY messages
-
-# External File Systems Support
-
-  fuse-exfat              # +noui Full support for Microsoft® exFAT
-  fuse-sshfs              # +noui
-  ntfs-3g                 # +noui Full support for Microsoft® NTFS
-  mtpfs                   #
+  socklog-void            # +noui Logger(just to hide NetworkManager annoying TTY messages)
 
 # System Resources Controllers
 
@@ -132,23 +133,27 @@
   exiftool                # +cli Media files metadata reader/writer (mostly to read graphics)
   feh                     # +gui Simple image viewer
   mpv                     # +gui Multiformat media (mostly video) player
-  zathura                 # +tui
+  zathura                 # +gui Electonic books reader
  #spek                    # +gui +3rdp Acoustic spectrum analyser and viewer
 
 # Multimedia Editors
 
   gimp                    # +gui Advanced image editor
-  ImageMagick             # +cli
+  ImageMagick             # +cli Automated image editor
   inkscape                # +gui Advanced vector graphics editor
+
+# Job Schedulers
+
+  snooze                  # +cli at-like with intervals support
+  cronie                  # +cli Cron-like
 
 # Miscellaneous Non-Graphical Utilities
 
-  gnuplot                 # +cli
-  cronie                  # +cli Cron-like scheduler
   bc                      # +cli Calculator
   curl                    # +cli HTTP downloader/uploader, pair to "wget"
   ffmpeg                  # +cli Audio and video handler (mostly for converting)
   git                     # +cli Revision control system
+  gnuplot                 # +cli
   newsboat                # +tui Actively developing newsbeuter RSS reader fork
   p7zip                   # +cli 7ZIP archiving tool
   pandoc                  # +cli Document files converting tool
@@ -161,14 +166,15 @@
   xdg-utils               # +cli
   xorriso                 # +cli ISO filesystem manipulator (makes ISO file from directory e.g.)
   xtools                  # +cli
-  youtube-dl              # +cli Video downloader for YouTube and some other sites
   xz                      # +cli
+  youtube-dl              # +cli Video downloader for YouTube and some other sites
+  xdotool                 # +cli Fake input tool
 
 # Miscellaneous Graphical Utilities
 
   network-manager-applet  # +gui Network manager, provides "nm-applet" tray control, CLI "nmcli" and TUI "nmtui"
   pavucontrol             # +gui Interface for PulseAudio
-  transmission            # +cli
+  transmission            # +cli Bittorrent client
  #firefox                 # +gui +inap Provides only one version (stable) with no beta or nightly updates.
  #libreoffice             # +gui +inap Too big package so it's better to use flatpak for now
  #sublime-text            # +gui +3rdp Advanced text editor
@@ -210,7 +216,7 @@
   libtxc_dxtn-32bit       # +noui
   libv8-32bit             # +noui
   mesa-intel-dri-32bit    # +noui
-  mime-types              #
+  mime-types              # +noui
 
 # Virtualization and Compatibility: Flatpak
 #
@@ -218,6 +224,7 @@
 #   environments. It can be useful e.g. in case if you don't want to
 #   install bunches of dependency packages just for one big application
 #   (like in LibreOffice)
+#
 
   flatpak                 # +cli
 
@@ -233,6 +240,7 @@
 #
 #   Please note that there is only 32 bit version of Wine for Void
 #   currently, so you can't run 64 bit Windows® software for now.
+#
 
   wine-32bit              # +noui
   wine-gecko              # +noui
@@ -248,6 +256,7 @@
 #   QEMU does not provide any graphical interface by itself since it's a
 #   command line application. Hovewer, you can use "virt-manager"
 #   package to manage QEMU virtual machines via GUI.
+#
 
   virt-manager            # +gui
   qemu                    # +cli
