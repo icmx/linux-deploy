@@ -37,7 +37,7 @@
 #     are not supported for URxvt.perl-lib field. Relative paths are
 #     recognizable, but they're always relative to URxvt current working
 #     directory (so not really useful).
-
+#
 # Usage
 #
 #     To enable installed extension, make sure you have URxvt.perl-ext

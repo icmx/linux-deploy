@@ -41,10 +41,12 @@ Note that some of user-specific configuration directories are made up and not of
   - [x] ~~Add */etc/motd* and update */etc/issue*~~ — *motd* is not necessary
   - [x] ~~Add runit for non-root user (see smarden.org/runit/faq.html)~~ — overkill for user
   - [x] Clean custom scripts location (*obin*? what? */usr/local* may be?)
+  - [ ] Add *lm_sensors* configuration for laptop
   - [ ] Fix global colors list, use classic "bright\*" colors
   - [ ] Add insertmenu user script
   - [ ] Add *prefs.js* Firefox preferences
   - [ ] Fix *prepare-libvirt-ga* script
+  - [ ] Fix *ranger* settings
   - [ ] Clean system and user script shortcuts
   - [ ] Try to drop *virt-manager*
   - [ ] Add full system setup (from live iso)
