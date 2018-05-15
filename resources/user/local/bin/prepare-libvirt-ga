@@ -3,13 +3,20 @@
 TIME_STAMP="$(date +%s)"
 TARGET_DIR="libvirt-ga_${TIME_STAMP}"
 
-#mkdir --parents "$TARGET_DIR"
-#
-#wget --output-document "$TARGET_DIR/spice-gt.exe" "https://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-latest.exe"
-#wget --output-document "$TARGET_DIR/ff-win64.exe" "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US"
-#wget --output-document "$TARGET_DIR/ff-win32.exe" "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US"
-#wget --output-document "$TARGET_DIR/ff-lin64.bz2"     "http://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US"
+download() {
+  SOURCE=$1
+  OUTPUT=$2
+  echo "Downloading $1 ..."
+  curl --progress-bar --location --url "$SOURCE" --output "$OUTPUT"
+}
 
-xorrisofs -J -r -o "${TARGET_DIR}.iso" "${TARGET_DIR}"
 
-#rm -ri "$TARGET_DIR"
+mkdir --parents "$TARGET_DIR"
+
+download "http://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-latest.exe" "$TARGET_DIR/spice-gt.exe"
+download "http://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US" "$TARGET_DIR/ff-win64.exe"
+download "http://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US" "$TARGET_DIR/ff-win32.exe"
+download "http://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" "$TARGET_DIR/ff-lin64.bz2"
+
+xorrisofs --joliet --rational-rock --output "$TARGET_DIR.iso" "$TARGET_DIR"
+rm --recursive --interactive "$TARGET_DIR"

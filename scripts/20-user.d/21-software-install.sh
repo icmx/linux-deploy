@@ -15,7 +15,7 @@ pi() {
   local NAME="${PREF}/${1}.${2}"
 
   echo "   Downloading ${1}.${2} ..."
-  curl -# --location --url "${3}" --output "${NAME}"
+  curl --progress-bar --location --url "${3}" --output "${NAME}"
   mkdir --parents "${PREF}/opt/${1}"
   tar   --extract --verbose --file "${NAME}" --directory "${PREF}/opt/${1}" --strip-components 1
   rm    "${NAME}"

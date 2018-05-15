@@ -44,9 +44,9 @@ Note that some of user-specific configuration directories are made up and not of
   - [x] Fix global colors list, use classic "bright\*" colors
   - [x] ~~Add *prefs.js* Firefox preferences~~
   - [x] Replace *prefs.js* by *user.js*
+  - [x] Fix *prepare-libvirt-ga* script
   - [ ] Add *lm_sensors* configuration for laptop
   - [ ] Add insertmenu user script
-  - [ ] Fix *prepare-libvirt-ga* script
   - [ ] Fix *ranger* settings
   - [ ] Clean system and user script shortcuts
   - [ ] Try to drop *virt-manager*
