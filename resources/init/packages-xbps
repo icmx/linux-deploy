@@ -235,7 +235,7 @@
 #   (e.g. graphical or text editors) works in Wine by itself, but for
 #   advanced applications like 3D video games you'll probably need to
 #   install additional components listed in section "Additional
-#   Components: Libraries and Software External Modules (see for -32bit
+#   Components: Libraries and Software External Modules" (see for -32bit
 #   entries).
 #
 #   Please note that there is only 32 bit version of Wine for Void

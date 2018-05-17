@@ -20,7 +20,7 @@ super + e
 
 ## Screen Locker
 super + l
-  physlock -p "At $(date +%R) ${HOSTNAME} was locked."
+  physlock -p "physlock $(date '+%F %T'): ${HOSTNAME} locked"
 
 ## Screenshoter
 Print
