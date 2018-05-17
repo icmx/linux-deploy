@@ -20,4 +20,5 @@ cp --force "/usr/bin/startx" "/usr/local/bin/startx"
 cp --force --recursive "$PREF/etc" "/"
 
 ln --force --relative --symbolic                       "/usr/share/fontconfig/conf.avail/70-no-bitmaps.conf" "/etc/fonts/conf.d"
-ln --force --relative --symbolic --no-target-directory "/etc/issue.$O_PLATFORM"                      "/etc/issue"
+ln --force --relative --symbolic --no-target-directory "/etc/issue.$O_PLATFORM"                              "/etc/issue"
+ln --force --relative --symbolic --no-target-directory "/etc/motd.$O_PLATFORM"                               "/etc/motd"
