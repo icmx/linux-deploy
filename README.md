@@ -45,10 +45,10 @@ Note that some of user-specific configuration directories are made up and not of
   - [x] ~~Add *prefs.js* Firefox preferences~~
   - [x] Replace *prefs.js* by *user.js*
   - [x] Fix *prepare-libvirt-ga* script
+  - [x] Add insertmenu user script — some issues left, suddenly cuts the unicode chars
   - [ ] Add *lm_sensors* configuration for laptop
-  - [ ] Add insertmenu user script
   - [ ] Fix *ranger* settings
+  - [ ] Remove *virt-manager*
   - [ ] Clean system and user script shortcuts
-  - [ ] Try to drop *virt-manager*
   - [ ] Add full system setup (from live iso)
   - [ ] Add remote setup mode (to install by `curl | bash`)
