@@ -22,6 +22,10 @@ super + e
 super + l
   physlock -p "physlock $(date '+%F %T'): ${HOSTNAME} locked"
 
+## Advanced input
+super + i
+  insertmenu
+
 ## Screenshoter
 Print
   screenshot
