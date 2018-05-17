@@ -3,9 +3,13 @@
 STRINGS_FILE_NAME="${STRINGS_FILE_NAME:-$HOME/.config/insertmenu/strings}"
 
 string="$(
-  grep --perl-regexp --invert-match "^$|^ +" "$STRINGS_FILE_NAME" | \
-  rofi -dmenu -p "Select string to insert"                        | \
+  grep --perl-regexp --invert-match  "^$|^ +" "$STRINGS_FILE_NAME" | \
+  rofi -dmenu -p "Select string to insert"                         | \
   grep --perl-regexp --only-matching "^.+(?=  )" -
 )"
 
-xdotool type --clearmodifiers "$string"
+# "--delay" option below is necessary due to strange xdotool bug.
+# Without delay it swallows some of characters, especially unusual ones,
+# e.g. emojis or math symbols. Values below 200 wouldn't work.
+
+xdotool type --delay 200 --clearmodifiers "$string"

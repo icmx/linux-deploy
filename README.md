@@ -45,7 +45,7 @@ Note that some of user-specific configuration directories are made up and not of
   - [x] ~~Add *prefs.js* Firefox preferences~~
   - [x] Replace *prefs.js* by *user.js*
   - [x] Fix *prepare-libvirt-ga* script
-  - [x] Add insertmenu user script — some issues left, suddenly cuts the unicode chars
+  - [x] Add insertmenu user script
   - [ ] Add *lm_sensors* configuration for laptop
   - [ ] Fix *ranger* settings
   - [ ] Remove *virt-manager*
