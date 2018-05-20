@@ -46,8 +46,8 @@ Note that some of user-specific configuration directories are made up and not of
   - [x] Replace *prefs.js* by *user.js*
   - [x] Fix *prepare-libvirt-ga* script
   - [x] Add insertmenu user script
+  - [ ] Clean *ranger* settings
   - [ ] Add *lm_sensors* configuration for laptop
-  - [ ] Fix *ranger* settings
   - [ ] Remove *virt-manager*
   - [ ] Clean system and user script shortcuts
   - [ ] Add full system setup (from live iso)

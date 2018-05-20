@@ -1,10 +1,10 @@
 #!/bin/sh
 
-STRINGS_FILE_NAME="${STRINGS_FILE_NAME:-$HOME/.config/insertmenu/strings}"
+STRINGS="${ODG_INPUT_STRINGS:-$HOME/.config/insertmenu/strings}"
 
 string="$(
-  grep --perl-regexp --invert-match  "^$|^ +" "$STRINGS_FILE_NAME" | \
-  rofi -dmenu -p "Select string to insert"                         | \
+  grep --perl-regexp --invert-match  "^$|^ +" "$STRINGS" | \
+  rofi -dmenu -p "Select string to insert:"              | \
   grep --perl-regexp --only-matching "^.+(?=  )" -
 )"
 

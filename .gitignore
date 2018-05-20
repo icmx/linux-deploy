@@ -9,6 +9,7 @@
 /resources/user/config/inkscape/*
 
 /resources/user/config/sublime-text-3/Cache/*
+/resources/user/config/sublime-text-3/Index/*
 /resources/user/config/sublime-text-3/Installed Packages/*
 /resources/user/config/sublime-text-3/Local/*
 /resources/user/config/sublime-text-3/Packages/*

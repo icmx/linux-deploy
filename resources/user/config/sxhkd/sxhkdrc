@@ -20,7 +20,7 @@ super + e
 
 ## Screen Locker
 super + l
-  physlock -p "physlock $(date '+%F %T'): ${HOSTNAME} locked"
+  physlock -p "physlock: $(date '+%F %T'): ${HOSTNAME} locked"
 
 ## Advanced input
 super + i
