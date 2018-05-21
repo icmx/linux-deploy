@@ -44,6 +44,8 @@ dump() { /bin/echo "$output"; }
 # a common post-processing function used after most commands
 trim() { head -n "$maxln"; }
 
+format() { fmt -s -w $width; }
+
 # case "$extension" in
 #     # Archive extensions:
 #     a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
@@ -73,10 +75,14 @@ trim() { head -n "$maxln"; }
 #         ;; # fall back to highlight/cat if the text browsers fail
 # esac
 
+
 case "$mimetype" in
-    application/x-bittorrent)     transmission-show "$path" && exit 0;;
-    text/*  | */xml)              head  -n "$maxln" "$path" | fmt -s -w $width && exit 0;;
-    image/* | audio/* | video/* ) exiftool          "$path" | fmt -s -w $width && exit 0;;
+    application/x-bittorrent) transmission-show "$path" && exit 0;;
+    text/*  )                 head  -n "$maxln" "$path" | format && exit 0;;
+    */xml   )                 head  -n "$maxln" "$path" | format && exit 0;;
+    image/* )                 exiftool "$path" | format && exit 0;;
+    audio/* )                 exiftool "$path" | format && exit 0;;
+    video/* )                 exiftool "$path" | format && exit 0;;
 esac
 
 exit 1
