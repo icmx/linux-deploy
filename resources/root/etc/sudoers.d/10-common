@@ -1,0 +1,48 @@
+## The common way to define sudo permissions is a dumb rule like this:
+##
+##   $USER ALL=(ALL) ALL
+##
+## Or this:
+##
+##   %wheel ALL=(ALL) ALL
+##
+## Or this:
+##
+##   %sudo ALL=(ALL) ALL
+##
+## Well, you've got the idea. That's not good enough. In that case any
+## slightly-privileged user will get all the root power, including e.g.
+## ability to destroy the whole system just with "sudo rm -rf /".
+##
+## Even if root account is completely disabled (like in Ubuntu),
+## non-root user still be able to run "sudo su", "sudo -s" or similar
+## and become a real root.
+##
+## Indeed, sudo is powerful tool, but great power always comes with
+## great responsibility.
+##
+## Better to try the way below: it allows user to perform only specific
+## and not really harmful operations (for common home system).
+##
+
+Cmnd_Alias  ODG_POWER  = \
+  /usr/bin/halt,         \
+  /usr/bin/poweroff,     \
+  /usr/bin/reboot,       \
+  /usr/bin/shutdown,     \
+  /usr/bin/zzz,          \
+  /usr/bin/ZZZ
+
+Cmnd_Alias  ODG_OTHER = \
+  /usr/bin/dicap,       \
+  /usr/bin/hdq
+
+%odg ALL=(root) NOPASSWD: ODG_POWER, ODG_OTHER
+
+## Please note: one have to declare the commands with full paths to
+## increase security (they may be gathered by "which" command, for
+## instance:
+##
+##   $ which poweroff
+##   /usr/bin/poweroff
+##

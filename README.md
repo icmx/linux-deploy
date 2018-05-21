@@ -45,10 +45,10 @@ Note that some of user-specific configuration directories are made up and not of
   - [x] ~~Add *prefs.js* Firefox preferences~~
   - [x] Replace *prefs.js* by *user.js*
   - [x] Fix *prepare-libvirt-ga* script
-  - [ ] Split some */etc* configs to drop-in files
-    - [ ] */etc/sudoers* to */etc/sudoers.d*
-    - [ ] */etc/X11/xorg.conf* to */etc/X11/xorg.conf.d*
   - [x] Add insertmenu user script
+  - [ ] Split some */etc* configs to drop-in files
+    - [x] */etc/sudoers* to */etc/sudoers.d*
+    - [ ] */etc/X11/xorg.conf* to */etc/X11/xorg.conf.d*
   - [ ] Clean *ranger* settings
   - [ ] Add *lm_sensors* configuration for laptop
   - [ ] Remove *virt-manager*
