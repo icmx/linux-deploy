@@ -5,9 +5,9 @@ echo "<user> Installing user-specific software ..."
 pi() {
   # pi - pseudo-installation
   #
-  #   name  file name without extension
-  #   ext   file extension (.tar.gz e.g.)
-  #   link  url to file
+  #   1  name  file name without extension
+  #   2  ext   file extension (.tar.gz e.g.)
+  #   3  link  url to file
 
   local name="${1}"
   local  ext="${2}"
@@ -27,8 +27,8 @@ pi() {
 lv() {
   # lv - latest version
   #
-  #    link        url to page where lv should find the varsion number
-  #    expression  regular expression to retrieve version number
+  #   1  link        url to page where lv should find the varsion number
+  #   2  expression  regular expression to retrieve version number
   #
   # Dedicated to those nice people who can't make an always-latest
   # symlink at their repos. Thaks, I really appreciate that.
