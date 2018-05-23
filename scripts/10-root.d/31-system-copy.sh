@@ -5,8 +5,8 @@ echo "<root> Copying system configuration ..."
 PREF="$O_RESOURCES/$USER"
 
 # Executables
-cp --force --recursive "$PREF/bin" "/usr/local"
-cp --force --recursive "$PREF/lib" "/usr/local"
+cp --force --recursive "$PREF/usr/local/bin" "/usr/local"
+cp --force --recursive "$PREF/usr/local/lib" "/usr/local"
 
 ln --force --relative --symbolic --no-target-directory "/usr/bin/startx" "/usr/local/bin/x"
 ln --force --relative --symbolic --no-target-directory "/usr/bin/ranger" "/usr/local/bin/e"
