@@ -1,0 +1,5 @@
+Defaults log_host
+Defaults log_year
+Defaults loglinelen=0
+Defaults lecture=never
+Defaults logfile=/var/log/sudo.log

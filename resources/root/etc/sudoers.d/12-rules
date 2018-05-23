@@ -25,12 +25,12 @@
 ## and not really harmful operations (for common home system).
 ##
 
-Cmnd_Alias  ODG_POWER  = \
-  /usr/bin/halt,         \
-  /usr/bin/poweroff,     \
-  /usr/bin/reboot,       \
-  /usr/bin/shutdown,     \
-  /usr/bin/zzz,          \
+Cmnd_Alias  ODG_POWER = \
+  /usr/bin/halt,        \
+  /usr/bin/poweroff,    \
+  /usr/bin/reboot,      \
+  /usr/bin/shutdown,    \
+  /usr/bin/zzz,         \
   /usr/bin/ZZZ
 
 Cmnd_Alias  ODG_OTHER = \
@@ -40,7 +40,7 @@ Cmnd_Alias  ODG_OTHER = \
 %odg ALL=(root) NOPASSWD: ODG_POWER, ODG_OTHER
 
 ## Please note: one have to declare the commands with full paths to
-## increase security (they may be gathered by "which" command, for
+## increase security (paths may be gathered by "which" command, for
 ## instance:
 ##
 ##   $ which poweroff
