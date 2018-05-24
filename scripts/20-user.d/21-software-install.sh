@@ -8,6 +8,7 @@ pi() {
   #   1  name  file name without extension
   #   2  ext   file extension (.tar.gz e.g.)
   #   3  link  url to file
+  #
 
   local name="${1}"
   local  ext="${2}"
@@ -27,17 +28,18 @@ pi() {
 lv() {
   # lv - latest version
   #
-  #   1  link        url to page where lv should find the varsion number
-  #   2  expression  regular expression to retrieve version number
+  #   1  link    url to page where lv should find the varsion number
+  #   2  regexp  regular expression to retrieve version number
   #
   # Dedicated to those nice people who can't make an always-latest
   # symlink at their repos. Thaks, I really appreciate that.
+  #
 
   local link="${1}"
-  local expression="${2}"
+  local regexp="${2}"
 
-  curl --silent --location                         -- "${link}"       |\
-  grep --perl-regexp --only-matching --max-count 1 -- "${expression}"
+  curl --silent --location                         -- "${link}"   | \
+  grep --perl-regexp --only-matching --max-count 1 -- "${regexp}"
 }
 
 tor_version=$(lv "http://torproject.org/projects/torbrowser.html" "<th>GNU/Linux.+\(\K[^\)]+")
