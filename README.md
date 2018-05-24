@@ -32,23 +32,11 @@ Note that some of user-specific configuration directories are made up and not of
 
 ## TODO
 
-  - [x] Replace `wget` by `curl` in setup scripts
-  - [x] Clean polybar colors palette
   - [x] Fix system shortcuts (like hdq)
   - [x] Add one-char symlinks (x for startx, e for ranger and such)
-  - [x] Clean dunst colors palette
-  - [x] Add global colors palette to meta resources
-  - [x] ~~Add */etc/motd* and update */etc/issue*~~ — *motd* is not necessary
   - [x] ~~Add runit for non-root user (see smarden.org/runit/faq.html)~~ — overkill for user
-  - [x] Clean custom scripts location (*obin*? what? */usr/local* may be?)
-  - [x] Fix global colors list, use classic "bright\*" colors
   - [x] ~~Add *prefs.js* Firefox preferences~~
   - [x] Replace *prefs.js* by *user.js*
-  - [x] Fix *prepare-libvirt-ga* script
-  - [x] Add insertmenu user script
-  - [ ] Split some */etc* configs to drop-in files
-    - [x] */etc/sudoers* to */etc/sudoers.d*
-    - [ ] */etc/X11/xorg.conf* to */etc/X11/xorg.conf.d*
   - [ ] Clean *ranger* settings
   - [ ] Add *lm_sensors* configuration for laptop
   - [ ] Remove *virt-manager*
