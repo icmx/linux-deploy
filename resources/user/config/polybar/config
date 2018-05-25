@@ -201,7 +201,7 @@
 
 [module/daysleft]
   type     = custom/script
-  exec     = daysleft "2018" "06" "14"
+  exec     = daysleft "2018" "06" "13"
   interval = 60
 
   format   =  ETA: <label> days

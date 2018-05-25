@@ -1,6 +1,12 @@
-Type        Name
+# Fonts I currently use in my setup.
 
-sans        DejaVuSerif
-sans-serif  DejaVuSans
-monospace   Iosevka
-x-iconic    MaterialIcons
+Type        Name           Source
+
+sans        DejaVuSerif    github.com/dejavu-fonts/dejavu-fonts
+sans-serif  DejaVuSans     github.com/dejavu-fonts/dejavu-fonts
+monospace   Iosevka        github.com/be5invis/Iosevka
+x-iconic    MaterialIcons  github.com/google/material-design-icons
+
+# I really liked that one - much better than Iosevka, but unfortunately
+# has no some trivial symbols like № and ₽.
+#monospace   SudoVariable   github.com/jenskutilek/sudo-font
