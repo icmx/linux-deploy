@@ -11,7 +11,7 @@ O_PLATFORM="desktop"
 O_RESOURCES="resources"
 O_SCRIPTS="scripts"
 
-O_SOFTWARE="${O_RESOURCES}/init/packages"
+O_SOFTWARE="${O_RESOURCES}/meta/packages"
 O_SOFTWARE_COMMON="${O_SOFTWARE}-xbps"
 O_SOFTWARE_PLATFORM="${O_SOFTWARE}-xbps-${O_PLATFORM}"
 
