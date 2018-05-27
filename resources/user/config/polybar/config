@@ -117,6 +117,8 @@
   label-muted   =  %percentage%%
   format-muted  = <label-muted>
 
+  label-muted-foreground = ${colors.black-bright}
+
   ramp-volume-0 = 
   ramp-volume-1 = 
   ramp-volume-2 = 
