@@ -154,7 +154,7 @@
   ffmpeg                  # +cli Audio and video handler (mostly for converting)
   git                     # +cli Revision control system
   gnuplot                 # +cli
-  newsboat                # +tui Actively developing newsbeuter RSS reader fork
+ #fnewsboat                # +tui Actively developing newsbeuter RSS reader fork
   p7zip                   # +cli 7ZIP archiving tool
   pandoc                  # +cli Document files converting tool
   ranger                  # +tui File manager
@@ -174,7 +174,6 @@
 
   network-manager-applet  # +gui Network manager, provides "nm-applet" tray control, CLI "nmcli" and TUI "nmtui"
   pavucontrol             # +gui Interface for PulseAudio
-  transmission            # +cli Bittorrent client
  #firefox                 # +gui +inap Provides only one version (stable) with no beta or nightly updates.
  #libreoffice             # +gui +inap Too big package so it's better to use flatpak for now
  #sublime-text            # +gui +3rdp Advanced text editor

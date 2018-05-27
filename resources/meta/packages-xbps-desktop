@@ -5,4 +5,4 @@
 #
 # See main "xbps.list" file for details.
 
-# There are no deskop packages currently.
+  transmission            # +cli Bittorrent client
