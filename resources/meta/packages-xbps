@@ -111,6 +111,7 @@
   hostapd                 # +noui Provides means to create wireless access point
   ntp                     # +noui
   socklog-void            # +noui Logger(just to hide NetworkManager annoying TTY messages)
+  samba                   #
 
 # System Resources Controllers
 
