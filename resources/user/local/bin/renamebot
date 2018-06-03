@@ -119,12 +119,14 @@ def main():
         for name in listdir(DIRECTORY):
             path = join(DIRECTORY, name)
             if is_renamable(path):
-                old_name = path
+                old_name = basename(path)
+                old_path = path
                 new_name = get_new_name(path)
+                new_path = join(DIRECTORY, new_name)
                 try:
-                    rename(old_name, new_name)
+                    rename(old_path, new_path)
                 except:
-                    log('{0}: unable to rename'.format(old_name))
+                    log('{0}: unable to rename'.format(old_path))
                 else:
                     log('{0}: renamed to {1}'.format(old_name,new_name))
                 finally:
